@@ -1,0 +1,35 @@
+nav {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  padding: 0 $gap-padding;
+}
+
+.nav__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  border-bottom: 1px solid white;
+  padding: $gap-padding-em 0;
+}
+
+.nav__left {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.nav__left__img {
+  width: 2rem;
+
+  path {
+    fill: white;
+  }
+}
+
+.nav__left__title {
+  @extend %title-small;
+
+  color: $color-white;
+}

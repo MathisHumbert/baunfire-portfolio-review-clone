@@ -1,0 +1,71 @@
+@font-face {
+  font-family: $font-dm-sans;
+  src: url('../../fonts/dmsans-bold.woff2') format('woff2'),
+    url('../../fonts/dmsans-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $font-dm-sans;
+  src: url('../../fonts/dmsans-bolditalic.woff2') format('woff2'),
+    url('../../fonts/dmsans-bolditalic.woff') format('woff');
+  font-weight: 700;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $font-dm-sans;
+  src: url('../../fonts/dmsans-italic.woff2') format('woff2'),
+    url('../../fonts/dmsans-italic.woff') format('woff');
+  font-weight: 400;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $font-dm-sans;
+  src: url('../../fonts/dmsans-medium.woff2') format('woff2'),
+    url('../../fonts/dmsans-medium.woff') format('woff');
+  font-weight: 500;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $font-dm-sans;
+  src: url('../../fonts/dmsans-regular.woff2') format('woff2'),
+    url('../../fonts/dmsans-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $font-dm-sans;
+  src: url('../../fonts/dmsans-mediumitalic.woff2') format('woff2'),
+    url('../../fonts/dmsans-mediumitalic.woff') format('woff');
+  font-weight: 500;
+  font-style: italic;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $font-mondwest;
+  src: url('../../fonts/mondwest-regular.woff2') format('woff2'),
+    url('../../fonts/mondwest-regular.woff') format('woff');
+  font-weight: 400;
+  font-style: normal;
+  font-display: swap;
+}
+
+@font-face {
+  font-family: $font-mondwest;
+  src: url('../../fonts/mondwest-bold.woff2') format('woff2'),
+    url('../../fonts/mondwest-bold.woff') format('woff');
+  font-weight: 700;
+  font-style: normal;
+  font-display: swap;
+}

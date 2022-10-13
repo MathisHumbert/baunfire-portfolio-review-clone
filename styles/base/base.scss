@@ -1,0 +1,10 @@
+*,
+*:after,
+*:before {
+  box-sizing: border-box;
+  // user-select: none;
+}
+
+body {
+  font-family: $font-dm-sans;
+}

@@ -1,0 +1,33 @@
+// colors
+$color-dark: #1b1b1b;
+$color-dark-dark: #000000;
+$color-light: #f6f5ef;
+$color-white: #ffffff;
+$color-primary: #f84525;
+$color-secondary: #eafe07;
+$color-inactive: rgba(131, 131, 131, 0.3);
+$color-border: var($color-dark);
+$color-border-light: var($color-white);
+$color-text: var($color-dark);
+$color-text-light: var($color-white);
+$alert-error: #ff4444;
+$alert-success: #24c958;
+
+$animation-primary: 0.5s cubic-bezier(0.7, 0, 0.3, 1);
+$animation-ultra: 0.1s cubic-bezier(0.7, 0, 0.3, 1);
+$animation-fast: 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+$animation-smooth: 0.7s cubic-bezier(0.7, 0, 0.3, 1);
+$animation-slow: 0.9s cubic-bezier(0.7, 0, 0.3, 1);
+
+$section-padding: 18vh;
+$section-padding-small: max(1rem, 3vw);
+$container-padding: 11vw;
+$gap-padding: max(1rem, 3.5vw);
+$gap-padding-em: 1.75rem;
+
+$title-size: 13vw;
+
+$columns: 1;
+
+$font-dm-sans: 'DM Sans';
+$font-mondwest: 'Mondwest';
