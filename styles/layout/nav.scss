@@ -1,35 +1,33 @@
-nav {
+.nav {
   position: fixed;
   top: 0;
   left: 0;
+  bottom: 0;
   right: 0;
-  padding: 0 $gap-padding;
-}
-
-.nav__container {
+  pointer-events: none;
   display: flex;
-  justify-content: space-between;
-  align-items: center;
-  border-bottom: 1px solid white;
-  padding: $gap-padding-em 0;
+  flex-wrap: wrap;
+  align-content: center;
+  justify-content: center;
+  z-index: 100;
 }
 
-.nav__left {
-  display: flex;
-  gap: 0.45rem;
-  align-items: center;
+.nav__back {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 110vh;
+  transform: translateY(0) rotate(0.001deg);
 }
 
-.nav__left__img {
-  width: 2rem;
-
-  path {
-    fill: white;
-  }
+.nav__back__color {
+  position: relative;
+  width: 100%;
+  height: 100%;
+  background: $color-primary;
 }
 
-.nav__left__title {
-  @extend %title-small;
-
-  color: $color-white;
-}
+@import './nav__bar';
+@import './nav_bottom';
+@import './nav__menu';

@@ -1,0 +1,110 @@
+.nav__bar {
+  pointer-events: all;
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  padding: 0 $gap-padding;
+}
+
+.nav__bar__container {
+  position: relative;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: $gap-padding-em 0;
+}
+
+.nav__bar__left {
+  display: flex;
+  gap: 0.45rem;
+  align-items: center;
+}
+
+.nav__left__img {
+  width: 2rem;
+
+  filter: invert(99%) sepia(94%) saturate(4%) hue-rotate(224deg)
+    brightness(105%) contrast(100%);
+}
+
+.nav__left__title {
+  @extend %title-small;
+
+  color: $color-white;
+}
+
+.nav__right__hamburger {
+  position: relative;
+  width: 2rem;
+  height: 2rem;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  align-items: center;
+  margin-right: -0.1rem;
+  overflow: hidden;
+  cursor: pointer;
+
+  &:hover {
+    .nav__hamburger__bar:nth-child(1) {
+      transform: translate(0, -0.45rem) rotate(0.001deg) scale(0.5, 1);
+    }
+
+    .nav__hamburger__bar:nth-child(3) {
+      transform: translate(0, 0.45em) rotate(0.001deg) scale(0.5, 1);
+    }
+  }
+}
+
+.nav.open .nav__right__hamburger {
+  &:hover {
+    .nav__hamburger__bar:nth-child(1) {
+      transform: translate(0, 0) rotate(45deg) scale(0.7, 1);
+    }
+
+    .nav__hamburger__bar:nth-child(3) {
+      transform: translate(0, 0) rotate(-45deg) scale(0.7, 1);
+    }
+  }
+}
+
+.nav__hamburger__bar {
+  position: absolute;
+  width: 90%;
+  height: 2px;
+  background-color: $color-secondary;
+  transform: translate(0, 0) scale(1, 1) rotate(0.001deg);
+  transition: transform 0.25s ease-in-out;
+
+  &:nth-child(1) {
+    transform: translate(0, -0.45rem) rotate(0.001deg) scale(1, 1);
+  }
+
+  &:nth-child(3) {
+    transform: translate(0, 0.45em) rotate(0.001deg) scale(1, 1);
+  }
+}
+
+.nav.open .nav__hamburger__bar {
+  &:nth-child(1) {
+    transform: translate(0, 0) rotate(45deg) scale(1, 1);
+  }
+
+  &:nth-child(2) {
+    transform: translate(-150%, 0) rotate(0.001deg) scale(1, 1);
+  }
+
+  &:nth-child(3) {
+    transform: translate(0, 0) rotate(-45deg) scale(1, 1);
+  }
+}
+
+.nav__bar__line {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background: $color-white;
+  transform-origin: left top;
+}

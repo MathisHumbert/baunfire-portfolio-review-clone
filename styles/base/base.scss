@@ -7,4 +7,18 @@
 
 body {
   font-family: $font-dm-sans;
+  width: 100%;
+  -webkit-font-smoothing: antialiased;
+  position: relative;
+  background-color: var(--color-light);
+}
+
+main {
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100vw;
+  position: fixed;
+  height: 100%;
+  background: var(--color-light);
+  display: block;
 }
