@@ -1,4 +1,73 @@
-header {
-  height: 200vh;
+.header {
+  height: 101vh;
   background: $color-primary;
+  display: flex;
+  align-items: flex-end;
+  padding-bottom: calc($section-padding * 0.75);
+}
+
+.header__container {
+  width: 100%;
+  padding: 0 $gap-padding;
+  display: flex;
+  flex-direction: column;
+}
+
+.header__container__title {
+  overflow: hidden;
+  font-size: calc($title-size * 1.35);
+  display: flex;
+
+  @include media('>540px') {
+    font-size: calc($title-size * 1);
+  }
+}
+
+.header__container__title h1 {
+  line-height: 0.91;
+  color: $color-white;
+  letter-spacing: -0.04em;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 0.25em;
+}
+
+.header__container__title:last-child {
+  justify-content: flex-end;
+
+  h1 {
+    color: $color-secondary;
+    font-family: $font-mondwest;
+    font-size: 1.11em;
+    text-align: right;
+  }
+}
+
+.header__container__title:nth-child(2) span {
+  width: 100%;
+  text-align: right;
+
+  @include media('>540px') {
+    width: fit-content;
+  }
+}
+
+.header__bottom {
+  @extend %info__bottom;
+}
+
+.header__bottom__right {
+  display: flex;
+}
+
+.header__bottom__title {
+  @extend %title-small;
+
+  color: $color-white;
+}
+
+.header__bottom__blinking {
+  @extend %info__bottom__blinking;
+
+  background: $color-secondary;
 }

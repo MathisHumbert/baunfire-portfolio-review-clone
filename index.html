@@ -5,6 +5,7 @@
     <link rel="icon" type="image/svg+xml" href="/vite.svg" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Baunfire Portfolio Review | Summer '22</title>
+    <script src="https://unpkg.com/htmlincludejs"></script>
   </head>
   <body>
     <main>
@@ -16,8 +17,8 @@
           <div class="nav__bar__container">
             <div class="nav__bar__left">
               <img
-                src="/baunfire_logo.svg"
-                alt="baunfire_logo"
+                src="/baunfire-logo.svg"
+                alt="baunfire-logo"
                 class="nav__left__img"
               />
               <h4 class="nav__left__title">
@@ -42,6 +43,12 @@
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Purpose</span>
                   <span class="menu__item__text--alt">Purpose</span>
+                  <div class="menu__item__accent--left">
+                    <include src="./html/icon.html"></include>
+                  </div>
+                  <div class="menu__item__accent--right">
+                    <include src="./html/icon.html"></include>
+                  </div>
                 </h2>
               </div>
             </li>
@@ -50,6 +57,12 @@
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Location</span>
                   <span class="menu__item__text--alt">Location</span>
+                  <div class="menu__item__accent--left">
+                    <include src="./html/icon.html"></include>
+                  </div>
+                  <div class="menu__item__accent--right">
+                    <include src="./html/icon.html"></include>
+                  </div>
                 </h2>
               </div>
             </li>
@@ -58,6 +71,12 @@
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Schedule</span>
                   <span class="menu__item__text--alt">Schedule</span>
+                  <div class="menu__item__accent--left">
+                    <include src="./html/icon.html"></include>
+                  </div>
+                  <div class="menu__item__accent--right">
+                    <include src="./html/icon.html"></include>
+                  </div>
                 </h2>
               </div>
             </li>
@@ -66,6 +85,12 @@
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Apply</span>
                   <span class="menu__item__text--alt">Apply</span>
+                  <div class="menu__item__accent--left">
+                    <include src="./html/icon.html"></include>
+                  </div>
+                  <div class="menu__item__accent--right">
+                    <include src="./html/icon.html"></include>
+                  </div>
                 </h2>
               </div>
             </li>
@@ -74,6 +99,12 @@
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Contact</span>
                   <span class="menu__item__text--alt">Contact</span>
+                  <div class="menu__item__accent--left">
+                    <include src="./html/icon.html"></include>
+                  </div>
+                  <div class="menu__item__accent--right">
+                    <include src="./html/icon.html"></include>
+                  </div>
                 </h2>
               </div>
             </li>
@@ -95,7 +126,34 @@
           </div>
         </div>
       </nav>
-      <header></header>
+      <header class="header">
+        <div class="header__container">
+          <div class="header__container__title">
+            <h1>Baunfire</h1>
+          </div>
+          <div class="header__container__title">
+            <h1>Portfolio <span>Review</span></h1>
+          </div>
+          <div class="header__container__title">
+            <h1>Summer <span>'22</span></h1>
+          </div>
+        </div>
+        <div class="header__bottom">
+          <div class="header__bottom__left">
+            <h4 class="header__bottom__title">
+              south bay made <br />
+              since '01
+            </h4>
+          </div>
+          <div class="header__bottom__right">
+            <div class="header__bottom__blinking"></div>
+            <h4 class="header__bottom__title">
+              now accepting <br />
+              applicants
+            </h4>
+          </div>
+        </div>
+      </header>
     </main>
     <script type="module" src="/main.js"></script>
   </body>

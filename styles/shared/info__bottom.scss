@@ -1,0 +1,33 @@
+%info__bottom {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  display: flex;
+  justify-content: space-between;
+  padding: 0 $gap-padding $gap-padding-em $gap-padding;
+}
+
+%info__bottom__blinking {
+  width: 0.75rem;
+  height: 0.75rem;
+  border-radius: 50%;
+  margin-right: 0.45rem;
+  margin-top: 0.075rem;
+  animation: blinking 1s;
+  animation-iteration-count: infinite;
+}
+
+@keyframes blinking {
+  0% {
+    opacity: 1;
+  }
+  50% {
+    opacity: 1;
+  }
+  51% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+  }
+}
