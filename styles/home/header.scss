@@ -7,8 +7,8 @@
 }
 
 .header__container {
-  width: 100%;
-  padding: 0 $gap-padding;
+  @extend %container;
+
   display: flex;
   flex-direction: column;
 }

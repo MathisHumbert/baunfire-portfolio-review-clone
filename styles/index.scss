@@ -1,14 +1,16 @@
 @import './base/reset';
 
-@import './utils/variables';
 @import './utils/repsonsive';
+@import './utils/variables';
 
 @import './base/font';
 @import './base/base';
 
 @import './shared/titles';
 @import './shared/info__bottom';
+@import './shared/container';
 
 @import './home/header';
+@import './home/purpose';
 
 @import './layout/nav';

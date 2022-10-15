@@ -8,11 +8,11 @@
 }
 
 %info__bottom__blinking {
-  width: 0.75rem;
-  height: 0.75rem;
+  width: 0.75em;
+  height: 0.75em;
   border-radius: 50%;
-  margin-right: 0.45rem;
-  margin-top: 0.075rem;
+  margin-right: 0.45em;
+  margin-top: 0.075em;
   animation: blinking 1s;
   animation-iteration-count: infinite;
 }

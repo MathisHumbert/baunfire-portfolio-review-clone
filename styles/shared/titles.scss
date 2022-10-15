@@ -6,3 +6,32 @@
   text-transform: uppercase;
   color: $color-text;
 }
+
+%title-big {
+  font-size: 1.33em;
+  line-height: 1.35;
+  color: $color-text;
+
+  @include media('>540px') {
+    font-size: 1.6em;
+  }
+}
+
+%title-h2 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: calc($title-size * 1);
+  line-height: 0.91;
+  color: $color-text;
+}
+
+%title-h4 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 500;
+  font-style: normal;
+  font-size: calc($title-size * 0.15);
+  line-height: 1;
+  color: $color-text;
+  text-transform: uppercase;
+}

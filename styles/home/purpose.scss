@@ -1,0 +1,63 @@
+.purpose {
+  @extend %section;
+
+  background: $color-light;
+}
+
+.purpose__container {
+  @extend %container;
+}
+
+.purpose__container__header {
+  padding-top: $section-padding;
+  position: relative;
+}
+
+.purpose__header__line {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: $color-border;
+  display: block;
+}
+
+.purpose__header__title {
+  @extend %title-h2;
+
+  display: flex;
+  align-items: baseline;
+  gap: 0.5em;
+
+  h2 {
+    font-size: 1.11em;
+    line-height: 0.91;
+    font-family: $font-mondwest;
+    padding: 0 0.025em 0.075em 0.025em;
+    margin: -0.1em -0.065em 0.075em -0.065em;
+  }
+
+  h4 {
+    @extend %title-h4;
+  }
+}
+
+.purpose__container__text {
+  padding-top: calc($section-padding * 0.5);
+  padding-left: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: $gap-padding-em;
+
+  @include media('>720px') {
+    padding-left: 34%;
+  }
+
+  @include media('>1024px') {
+    flex-direction: row;
+  }
+  p {
+    @extend %title-big;
+  }
+}
