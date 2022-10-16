@@ -1,9 +1,14 @@
 .header {
-  height: 101vh;
+  min-height: 101vh;
   background: $color-primary;
   display: flex;
   align-items: flex-end;
-  padding-bottom: calc($section-padding * 0.75);
+  padding-bottom: calc($section-padding + 7.5vh);
+  position: relative;
+
+  @include media('>1024px') {
+    padding-bottom: calc($section-padding * 0.75);
+  }
 }
 
 .header__container {

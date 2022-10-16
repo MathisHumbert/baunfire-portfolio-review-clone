@@ -1,22 +1,22 @@
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/all';
+import { ScrollTrigger } from 'gsap/ScrollTrigger';
 import './styles/index.scss';
 
-gsap.registerPlugin(CustomEase);
+gsap.registerPlugin(CustomEase, ScrollTrigger);
 
 CustomEase.create('animation-smooth', '0.7, 0, 0.3, 1');
 CustomEase.create('nav-translate', '.9, 0, .1, 1');
 
 const init = () => {
   initHeader();
+  initPurpose();
 };
 
 const initHeader = () => {
   const tl = gsap.timeline();
 
   const headerTitles = gsap.utils.toArray('.header__container__title h1');
-
-  console.log(headerTitles);
 
   tl.from(headerTitles, {
     translateY: '125%',
@@ -26,8 +26,8 @@ const initHeader = () => {
     duration: 1.25,
   })
     .from(
-      '.nav__bar',
-      { scale: '(0, 1)', transformOrigin: 'left top', duration: 1.5 },
+      '.nav__bar__line',
+      { scale: '(0, 1)', duration: 1, ease: 'linear' },
       '<'
     )
     .from(
@@ -50,6 +50,41 @@ const initHeader = () => {
       },
       '<'
     );
+};
+
+const initPurpose = () => {
+  gsap.to('.purpose__header__title h2, .purpose__header__title h4 span', {
+    translateY: 0,
+    rotate: 0,
+    ease: 'animation-smooth',
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.purpose__header__title',
+      start: 'bottom bottom',
+    },
+  });
+
+  gsap.to('.purpose__header__line', {
+    scale: 1,
+    duration: 1,
+    ease: 'linear',
+    scrollTrigger: {
+      trigger: '.purpose__header__title',
+      start: 'bottom bottom',
+    },
+  });
+
+  gsap.to('.purpose__container__text p', {
+    translateY: 0,
+    opacity: 1,
+    stagger: 0.1,
+    ease: 'animation-smooth',
+    duration: 1,
+    scrollTrigger: {
+      trigger: '.purpose__container__text',
+      start: 'bottom bottom',
+    },
+  });
 };
 
 window.addEventListener('load', () => init());

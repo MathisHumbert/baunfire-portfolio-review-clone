@@ -21,9 +21,13 @@
   font-family: 'DM Sans', sans-serif;
   font-weight: 400;
   font-style: normal;
-  font-size: calc($title-size * 1);
+  font-size: calc($title-size * 1.075);
   line-height: 0.91;
   color: $color-text;
+
+  @include media('>540px') {
+    font-size: calc($title-size * 1);
+  }
 }
 
 %title-h4 {
