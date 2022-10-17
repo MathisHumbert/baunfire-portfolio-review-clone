@@ -44,12 +44,11 @@
 }
 
 .menu__item__text--alt {
+  @extend %title-mondwest;
+
   position: absolute;
-  font-family: $font-mondwest;
   transform: translateY(-150%);
-  font-size: 1.11em;
   margin-bottom: -0.1em;
-  line-height: 0.91;
 }
 
 .menu__item__text--normal {

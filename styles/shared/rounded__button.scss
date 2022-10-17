@@ -1,0 +1,151 @@
+.rounded__button {
+  position: relative;
+  cursor: pointer;
+  border: 1px solid transparent;
+  border-radius: 50%;
+
+  &:hover .rounded__button__text {
+    svg {
+      transform: rotate(-315deg);
+    }
+    .double {
+      span:nth-child(1) {
+        transform: translateY(-100%);
+      }
+
+      span:nth-child(2) {
+        transform: translateY(0%);
+      }
+    }
+  }
+}
+
+.rounded__button__container {
+  width: clamp(9em, 12vw, 11em);
+  height: clamp(9em, 12vw, 11em);
+  border-radius: 50%;
+  border: 0;
+  background: $color-dark;
+}
+
+.rounded__button__fill {
+  background: $color-primary;
+  position: absolute;
+  border-radius: 50%;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  transform: scale(1);
+  will-change: transform;
+  transition: background-color ease-in-out 0.25s;
+}
+
+.rounded__button__text {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  width: 100%;
+  height: 100%;
+  padding: 0 2.5em;
+  z-index: 2;
+  color: $color-white;
+  position: relative;
+  transform: rotate(0.001deg);
+  pointer-events: none;
+  will-change: transform, color;
+
+  h4 {
+    @extend %title-h4;
+
+    display: inline-flex;
+    align-items: center;
+    position: relative;
+    color: $color-white;
+    font-size: 1.2em;
+    line-height: 1;
+
+    @include media('>540px') {
+      font-size: 1.5em;
+    }
+  }
+
+  svg {
+    width: 0.65em;
+    transform: rotate(0deg);
+    transition: $animation-primary;
+  }
+
+  .double {
+    display: inline-flex;
+    position: relative;
+    margin-left: 0.2em;
+    overflow: hidden;
+
+    span {
+      transition: $animation-primary;
+    }
+
+    span:nth-child(2) {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(100%);
+    }
+  }
+}
+
+// button {
+//     width: clamp(9em, 12vw, 11em);
+//     height: clamp(9em, 12vw, 11em);
+//     border-radius: 50%;
+//     border: 0;
+//     background: $color-primary;
+
+//     &:hover {
+//       span:nth-child(1) {
+//         transform: translateY(-100%);
+//       }
+
+//       span:nth-child(2) {
+//         transform: translateY(0%);
+//       }
+//     }
+//   }
+
+//   h4 {
+//     @extend %title-h4;
+
+//     display: inline-flex;
+//     align-items: center;
+//     position: relative;
+//     color: $color-white;
+//     font-size: 1.5em;
+//     line-height: 1;
+
+//     svg {
+//       width: 0.65em;
+//       transform: translateY(-15%);
+//       transition: $animation-primary;
+//       display: inline-flex;
+//       height: auto;
+//       box-sizing: border-box;
+//     }
+
+//     .double {
+//       display: inline-flex;
+//       position: relative;
+//       margin-left: 0.1em;
+//     }
+
+//     span {
+//       transition: $animation-primary;
+//     }
+
+//     span:nth-child(2) {
+//       position: absolute;
+//       top: 0;
+//       left: 0;
+//       transform: translateY(100%);
+//     }
+//   }

@@ -1,12 +1,13 @@
 :root {
-  --section-padding: 10vw;
-  --section-padding-small: 6vw;
+  --section-padding: 10vh;
+  --section-padding-small: 8vw;
   --container-padding: 4vw;
 }
 
 @include media('>720px') {
   :root {
-    --section-padding-small: 8vw;
+    --section-padding: 10vw;
+    --container-padding: 6vw;
   }
 }
 

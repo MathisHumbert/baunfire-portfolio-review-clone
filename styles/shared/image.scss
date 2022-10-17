@@ -1,0 +1,13 @@
+.image__reveal {
+  position: absolute;
+  top: -1%;
+  left: -1%;
+  width: 102%;
+  height: 102%;
+  background: $color-primary;
+  transform-origin: left top;
+
+  &.secondary {
+    background: $color-secondary;
+  }
+}

@@ -30,12 +30,40 @@
   }
 }
 
+%title-h3 {
+  font-family: 'DM Sans', sans-serif;
+  font-weight: 400;
+  font-style: normal;
+  font-size: calc($title-size * 0.7);
+
+  line-height: 0.91;
+  color: $color-text;
+
+  @include media('>540px') {
+    font-size: calc($title-size * 0.4825);
+  }
+}
+
 %title-h4 {
   font-family: 'DM Sans', sans-serif;
   font-weight: 500;
   font-style: normal;
-  font-size: calc($title-size * 0.15);
+  font-size: calc($title-size * 0.3);
   line-height: 1;
   color: $color-text;
   text-transform: uppercase;
+
+  @include media('>540px') {
+    font-size: calc($title-size * 0.25);
+  }
+
+  @include media('>1024px') {
+    font-size: calc($title-size * 0.15);
+  }
+}
+
+%title-mondwest {
+  font-size: 1.11em;
+  line-height: 0.91;
+  font-family: $font-mondwest;
 }

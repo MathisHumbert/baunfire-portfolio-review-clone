@@ -33,9 +33,8 @@
   overflow: hidden;
 
   h2 {
-    font-size: 1.11em;
-    line-height: 0.91;
-    font-family: $font-mondwest;
+    @extend %title-mondwest;
+
     padding: 0 0.025em 0.075em 0.025em;
     margin: -0.1em -0.065em 0.075em -0.065em;
     transform: translateY(115%) rotate(5deg);
@@ -142,7 +141,6 @@
   left: 0;
   height: 100%;
   width: 100%;
-  // transform: translate(100%);
 }
 
 .purpose__images__top__image img {
@@ -152,6 +150,7 @@
   width: 100%;
   object-fit: cover;
   vertical-align: center;
+  transform: scale(2, 2);
 
   @include media('>1024px') {
     top: -10vh;
@@ -167,15 +166,4 @@
   width: 100%;
   object-fit: cover;
   vertical-align: center;
-}
-
-.purpose__images__reveal {
-  position: absolute;
-  top: -1%;
-  left: -1%;
-  width: 102%;
-  height: 102%;
-  background: $color-primary;
-  transform-origin: left top;
-  transform: translateY(100%);
 }

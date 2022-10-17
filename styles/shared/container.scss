@@ -5,6 +5,13 @@
   margin: 0 auto;
 }
 
+%container-medium {
+  width: 100%;
+  max-width: 100%;
+  padding: 0 $container-padding;
+  margin: 0 auto;
+}
+
 %section {
   display: block;
   padding: $section-padding 0;

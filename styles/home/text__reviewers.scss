@@ -1,0 +1,90 @@
+.text__reviewers {
+  background: $color-light;
+}
+
+.text__section {
+  @extend %container-medium;
+
+  padding-top: calc($section-padding * 0.25);
+  padding-bottom: 0;
+}
+
+.text__section__container {
+  position: relative;
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: flex-end;
+  position: relative;
+}
+
+.text__section__info__subtitle {
+  @extend %title-h4;
+
+  position: absolute;
+  top: 3.25vw;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    transform: translateY(115%);
+  }
+}
+
+.text__section__info__title {
+  @extend %title-h3;
+
+  color: $color-primary;
+
+  div {
+    padding: 0 0 0.15em 0;
+    margin: 0 0 -0.05em 0;
+    overflow: hidden;
+
+    &:first-child {
+      margin-left: 42%;
+    }
+  }
+
+  span {
+    display: inline-block;
+    transform: translate(0%, 200%) rotate(5deg);
+
+    &.normal__screen {
+      display: none;
+    }
+
+    &.small__scren {
+      display: inline-block;
+    }
+
+    @include media('>540px') {
+      white-space: nowrap;
+
+      &.normal__screen {
+        display: inline-block;
+      }
+
+      &.small__scren {
+        display: none;
+      }
+    }
+  }
+}
+
+.text__section .rounded__button {
+  margin-top: 2em;
+  padding: 0;
+
+  @include media('>1024px') {
+    margin-top: 0;
+    position: absolute;
+    right: 10vw;
+    bottom: -5em;
+  }
+}
+
+.reviewers__section {
+  @extend %section;
+  border: red;
+}

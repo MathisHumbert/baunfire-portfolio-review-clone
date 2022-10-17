@@ -41,9 +41,9 @@
   justify-content: flex-end;
 
   h1 {
+    @extend %title-mondwest;
+
     color: $color-secondary;
-    font-family: $font-mondwest;
-    font-size: 1.11em;
     text-align: right;
   }
 }
