@@ -26,15 +26,15 @@ const initReviewers = () => {
   gsap.registerEffect({
     name: 'animateSwiperImage',
     extendTimeline: true,
-    effect: (targets, config) => {
-      const tl = gsap.timeline();
+    effect: (targets) => {
+      const tl = gsap.timeline({ ease: 'animation-smooth' });
 
-      tl.to(targets[config.first], { translateX: '-100%', duration: 1 })
-        .to(targets[config.second], { translateX: 0, duration: 1 }, 0)
-        .to(targets[config.third], { translateX: '100%', duration: 1 }, 0)
-        .to(targets[config.third], { opacity: 1, duration: 0 })
+      tl.to(targets[0], { translateX: '-100%', duration: 1 })
+        .to(targets[1], { translateX: 0, duration: 1 }, 0)
+        .to(targets[2], { translateX: '100%', duration: 1 }, 0)
+        .to(targets[2], { opacity: 1, duration: 0 })
         .to(
-          targets[config.first],
+          targets[0],
           {
             opacity: 0,
             duration: 0,
@@ -61,62 +61,127 @@ const initReviewers = () => {
     },
   });
 
+  gsap.registerEffect({
+    name: 'animateSwiperText',
+    extendTimeline: true,
+    effect: (targets) => {
+      const tl = gsap.timeline({ ease: 'animation-smooth' });
+
+      const first = targets[0].querySelectorAll('span');
+      const second = targets[1].querySelectorAll('span');
+      const third = targets[2].querySelectorAll('span');
+
+      tl.to(first, { translateY: '-100%', opacity: 0, duration: 0.4 });
+      tl.to(second, { translateY: 0, opacity: 1, duration: 0.4 }, '-=0.3');
+      tl.to(third, { translateY: '100%', duration: 0 });
+
+      return tl;
+    },
+  });
+
+  const imageRevealLeft = document.querySelector(
+    '.reviewers__section__images__left .image__reveal'
+  );
+  const imageRevealRight = document.querySelector(
+    '.reviewers__section__images__right .image__reveal'
+  );
+  const imagesWrapper = document.querySelector('.reviewers__section__images');
+
   const images = gsap.utils.toArray('.reviewers__images__right__image img');
+  const videos = gsap.utils.toArray('.reviewers__images__left__image video');
   const bars = gsap.utils.toArray('.reviewers__swiper__pagination__progress');
+  const texts = gsap.utils.toArray('.reviewers__images__infos__title');
 
-  const animateInfinitSwiperFirst = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 10,
-    delay: 3,
-  });
-  const animateInfinitBarFirst = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 7,
-    delay: 0,
-  });
+  animateImageIn(
+    [imageRevealLeft, imageRevealRight],
+    [videos[0], images[0]],
+    imagesWrapper,
+    '50% bottom'
+  );
 
-  const animateInfinitSwiperSecond = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 10,
-    delay: 7,
-  });
-  const animateInfinitBarSecond = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 7,
-    delay: 4,
-  });
+  const animateInfinitSwiperFirst = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 10,
+      delay: 3,
+    })
+    .animateSwiperImage([images[0], images[1], images[2]])
+    .animateSwiperImage([videos[0], videos[1], videos[2]], 0)
+    .animateSwiperText([texts[0], texts[1], texts[2]], '-=1');
+  const animateInfinitSwiperSecond = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 10,
+      delay: 7,
+    })
+    .animateSwiperImage([[images[1], images[2], images[0]]])
+    .animateSwiperImage([[videos[1], videos[2], videos[0]]], 0)
+    .animateSwiperText([texts[1], texts[2], texts[0]], '-=1');
+  const animateInfinitSwiperThird = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 10,
+      delay: 11,
+    })
+    .animateSwiperImage([[images[2], images[0], images[1]]])
+    .animateSwiperImage([[videos[2], videos[0], videos[1]]], 0)
+    .animateSwiperText([texts[2], texts[0], texts[1]], '-=1');
 
-  const animateInfinitSwiperThird = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 10,
-    delay: 11,
-  });
-  const animateInfinitBarThird = gsap.timeline({
-    repeat: -1,
-    repeatDelay: 7,
-    delay: 8,
-  });
+  const animateInfinitBarTextFirst = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 7,
+      delay: 0,
+    })
+    .animateSwiperBar(bars[0]);
+  const animateInfinitBarTextSecond = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 7,
+      delay: 4,
+    })
+    .animateSwiperBar(bars[1]);
+  const animateInfinitBarTextThird = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 7,
+      delay: 8,
+    })
+    .animateSwiperBar(bars[2]);
 
-  animateInfinitSwiperFirst.animateSwiperImage(images, {
-    first: 0,
-    second: 1,
-    third: 2,
-  });
-  animateInfinitBarFirst.animateSwiperBar(bars[0]);
+  const main = gsap.timeline({ paused: true });
 
-  animateInfinitSwiperSecond.animateSwiperImage(images, {
-    first: 1,
-    second: 2,
-    third: 0,
-  });
-  animateInfinitBarSecond.animateSwiperBar(bars[1]);
+  main
+    .add(animateInfinitSwiperFirst, 0)
+    .add(animateInfinitSwiperSecond, 0)
+    .add(animateInfinitSwiperThird, 0)
+    .add(animateInfinitBarTextFirst, 0)
+    .add(animateInfinitBarTextSecond, 0)
+    .add(animateInfinitBarTextThird, 0);
 
-  animateInfinitSwiperThird.animateSwiperImage(images, {
-    first: 2,
-    second: 0,
-    third: 1,
+  ScrollTrigger.create({
+    trigger: imagesWrapper,
+    markers: true,
+    start: '50% bottom',
+    end: 'bottom top',
+    onEnter: () => {
+      console.log('enter');
+      main.play();
+      videos.forEach((video) => video.play());
+    },
+    onLeave: () => {
+      main.pause();
+      videos.forEach((video) => video.pause());
+    },
+    onEnterBack: () => {
+      main.play();
+      videos.forEach((video) => video.play());
+    },
+    onLeaveBack: () => {
+      main.pause();
+      videos.forEach((video) => video.pause());
+    },
   });
-  animateInfinitBarThird.animateSwiperBar(bars[2]);
 };
 
 const init = () => {
