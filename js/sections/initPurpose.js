@@ -33,6 +33,7 @@ export default function initPurpose() {
   animateTextIn(
     '.purpose__container__text p',
     0.1,
+    0.7,
     '.purpose__container__text',
     'bottom bottom'
   );

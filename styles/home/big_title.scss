@@ -1,0 +1,89 @@
+.big__title {
+  @extend %section;
+
+  background: $color-dark;
+}
+
+.big__title__container {
+  @extend %container-medium;
+
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+}
+
+.big__title__wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.big__title__part {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.big__title__part__text {
+  display: flex;
+}
+
+.big__title__part__text.center {
+  justify-content: center;
+}
+
+.big__title__part__text.end {
+  justify-content: flex-end;
+}
+
+.big__title__part__text.mondwest span {
+  @extend %title-mondwest;
+}
+
+.big__title__part__text h4 {
+  @extend %title-h4;
+
+  color: $color-primary;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    transform: translateY(115%) rotate(5deg);
+  }
+}
+
+.big__title__part__text h2 {
+  @extend %title-h2;
+
+  color: $color-secondary;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 0.25em;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    padding: 0 0.025em;
+    margin: 0 -0.065em 0 -0.065em;
+    transform: translateY(115%) rotate(5deg);
+  }
+}
+
+.big__title__last__part {
+  padding-top: calc($section-padding * 0.5);
+  padding-bottom: calc($section-padding * 0.25);
+
+  display: flex;
+  justify-content: center;
+}
+
+.big__title__last__part h4 {
+  @extend %title-h4;
+
+  max-width: 15em;
+  text-align: center;
+  color: $color-white;
+  transform: translateY(2em);
+  opacity: 0;
+}

@@ -3,6 +3,7 @@
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 50%;
+  z-index: 100;
 
   &:hover .rounded__button__text {
     svg {
