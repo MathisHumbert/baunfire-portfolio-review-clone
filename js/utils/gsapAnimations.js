@@ -18,7 +18,6 @@ export function animateTitleIn(target, stagger = 0.05, trigger, start) {
     scrollTrigger: {
       trigger,
       start,
-      markers: true,
     },
   });
 }

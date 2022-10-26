@@ -1,0 +1,247 @@
+.info__image {
+  @extend %section;
+
+  background: $color-light;
+}
+
+.info__image__container {
+  @extend %container;
+}
+
+.info__image__container__header {
+  padding-top: $section-padding;
+  position: relative;
+}
+
+.info__image__header__line {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: $color-border;
+  display: block;
+  // transform: scale(0, 1);
+  transform-origin: left top;
+}
+
+.info__image__header__title {
+  @extend %title-h2;
+
+  display: flex;
+  align-items: baseline;
+  gap: 0.5rem;
+  overflow: hidden;
+
+  h2 {
+    @extend %title-mondwest;
+
+    padding: 0 0.025em 0.075em 0.025em;
+    margin: -0.1em -0.065em 0.075em -0.065em;
+    // transform: translateY(115%) rotate(5deg);
+  }
+
+  h4 {
+    @extend %title-h4;
+    overflow: hidden;
+
+    span {
+      display: block;
+      // transform: translateY(115%) rotate(5deg);
+    }
+  }
+}
+
+.info__image__container__text {
+  padding-left: 0;
+  display: flex;
+  flex-wrap: nowrap;
+  flex-direction: column;
+  gap: $gap-padding-em;
+
+  p {
+    @extend %title-big;
+
+    // transform: translateY(2em);
+    // opacity: 0;
+  }
+}
+
+.info__image__images__top,
+.info__image__images__bottom {
+  position: relative;
+  width: 100%;
+}
+
+.info__image__images__top__wrapper {
+  position: relative;
+  background-color: $color-inactive;
+  overflow: hidden;
+
+  &::before {
+    content: '';
+    display: block;
+  }
+}
+
+.info__image__images__bottom__wrapper {
+  position: absolute;
+  overflow: hidden;
+  background-color: $color-inactive;
+
+  &::before {
+    content: '';
+    display: block;
+  }
+}
+
+.info__image__images__top__image,
+.info__image__images__bottom__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+
+  img {
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    object-fit: cover;
+    vertical-align: center;
+    transform: scale(2, 2);
+  }
+}
+
+.location {
+  .info__image__text__image__container {
+    display: flex;
+    flex-direction: column;
+
+    @include media('>1024px') {
+      flex-direction: row;
+    }
+  }
+
+  .info__image__container__text {
+    padding-top: calc($section-padding * 0.6);
+    padding-right: 0;
+    width: 100%;
+
+    @include media('>1024px') {
+      min-width: 50%;
+      max-width: 50%;
+      padding-left: $container-padding;
+      padding-right: $gap-padding;
+    }
+  }
+
+  .info__image__container__images {
+    width: 70%;
+    margin-left: 30%;
+
+    @include media('>1024px') {
+      margin-left: 0;
+      width: 100%;
+    }
+  }
+
+  .info__image__images__top {
+    padding-top: calc($section-padding * 0.66);
+  }
+
+  .info__image__images__top__wrapper {
+    width: calc(100% + $gap-padding);
+
+    &::before {
+      padding-top: 150%;
+    }
+  }
+
+  .info__image__images__bottom__wrapper {
+    width: 80%;
+    left: 10%;
+    transform: translate(-60%, -120%);
+
+    @include media('>1024px') {
+      width: 80%;
+      left: 40%;
+      transform: translate(-125%, -125%);
+    }
+
+    &::before {
+      padding-top: 80%;
+    }
+  }
+
+  .info__image__images__top__image img {
+    transform: scale(1, 1);
+    height: calc(100% + 10vh);
+    top: -10vh;
+  }
+
+  .info__image__images__bottom__image img {
+    transform: scale(1, 1);
+  }
+}
+
+.purpose {
+  .info__image__container__text {
+    padding-top: calc($section-padding * 0.5);
+
+    @include media('>720px') {
+      padding-left: 34%;
+    }
+
+    @include media('>1024px') {
+      flex-direction: row;
+    }
+  }
+
+  .info__image__images__top,
+  .info__image__images__bottom {
+    padding-top: calc($section-padding * 0.66);
+    padding-left: 20%;
+
+    @include media('>720px') {
+      padding-left: 34%;
+    }
+  }
+
+  .info__image__images__top__wrapper {
+    width: calc(100% + $gap-padding);
+
+    &::before {
+      padding-top: 80%;
+
+      @include media('>720px') {
+        padding-top: 66.7%;
+      }
+    }
+  }
+
+  .info__image__images__bottom__wrapper {
+    bottom: 0%;
+    left: 0;
+    width: 40%;
+    transform: translate(0%, 20%);
+
+    @include media('>720px') {
+      left: 34%;
+      width: 30%;
+      transform: translate(-50%, 10%);
+    }
+
+    &::before {
+      padding-top: 125%;
+    }
+  }
+
+  .info__image__images__top__image img {
+    top: unset;
+
+    @include media('>1024px') {
+      top: -10vh;
+      height: calc(100% + 10vh);
+    }
+  }
+}

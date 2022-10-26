@@ -6,35 +6,36 @@ import {
 } from '../utils/gsapAnimations.js';
 
 export default function initPurpose() {
-  const imageWrapperTop = document.querySelector(
-    '.purpose__images__top__wrapper'
+  const purpose = document.querySelector('.info__image.purpose');
+  const imageWrapperTop = purpose.querySelector(
+    '.info__image__images__top__wrapper'
+  );
+  const imageWrapperBottom = purpose.querySelector(
+    '.info__image__images__bottom__wrapper'
   );
   const imageRevealTop = imageWrapperTop.querySelector('.image__reveal');
-  const imageTop = imageWrapperTop.querySelector('img');
-  const imageWrapperBottom = document.querySelector(
-    '.purpose__images__bottom__wrapper'
-  );
   const imageRevealBottom = imageWrapperBottom.querySelector('.image__reveal');
+  const imageTop = imageWrapperTop.querySelector('img');
   const imageBottom = imageWrapperBottom.querySelector('img');
 
   animateTitleIn(
-    '.purpose__header__title h2, .purpose__header__title h4 span',
+    '.purpose .info__image__header__title h2, .purpose .info__image__header__title h4 span',
     0,
-    '.purpose__header__title',
+    '.purpose .info__image__header__title',
     'bottom bottom'
   );
 
   animateLineIn(
-    '.purpose__header__line',
-    '.purpose__header__title',
+    '.purpose .info__image__header__line',
+    '.purpose .info__image__header__title',
     'bottom bottom'
   );
 
   animateTextIn(
-    '.purpose__container__text p',
+    '.purpose .info__image__container__text p',
     0.1,
     0.7,
-    '.purpose__container__text',
+    '.purpose .info__image__container__text',
     'bottom bottom'
   );
 
