@@ -11,6 +11,7 @@ import initMenu from './js/sections/initMenu.js';
 import initBigTitle from './js/sections/initBigTitle.js';
 import initTitleImage from './js/sections/initTitleImage.js';
 import initReviewers from './js/sections/initReviewers.js';
+import initLocation from './js/sections/initLocation';
 
 gsap.registerPlugin(CustomEase, ScrollTrigger);
 
@@ -25,6 +26,7 @@ const init = () => {
   initReviewers();
   initBigTitle();
   initTitleImage();
+  initLocation();
 };
 
 window.addEventListener('load', () => init());

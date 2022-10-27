@@ -83,3 +83,9 @@
     bottom: -5em;
   }
 }
+
+.second__reviewers .text__section .rounded__button {
+  @include media('>1024px') {
+    bottom: -10em;
+  }
+}

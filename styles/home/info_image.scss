@@ -20,7 +20,7 @@
   height: 1px;
   background: $color-border;
   display: block;
-  // transform: scale(0, 1);
+  transform: scale(0, 1);
   transform-origin: left top;
 }
 
@@ -30,14 +30,23 @@
   display: flex;
   align-items: baseline;
   gap: 0.5rem;
-  overflow: hidden;
 
   h2 {
     @extend %title-mondwest;
 
+    font-size: 1.6em;
     padding: 0 0.025em 0.075em 0.025em;
     margin: -0.1em -0.065em 0.075em -0.065em;
-    // transform: translateY(115%) rotate(5deg);
+    overflow: hidden;
+
+    @include media('>1024px') {
+      font-size: 1.495em;
+    }
+
+    span {
+      display: inline-block;
+      transform: translateY(115%) rotate(5deg);
+    }
   }
 
   h4 {
@@ -45,8 +54,8 @@
     overflow: hidden;
 
     span {
-      display: block;
-      // transform: translateY(115%) rotate(5deg);
+      display: inline-block;
+      transform: translateY(115%) rotate(5deg);
     }
   }
 }
@@ -61,8 +70,8 @@
   p {
     @extend %title-big;
 
-    // transform: translateY(2em);
-    // opacity: 0;
+    transform: translateY(2em);
+    opacity: 0;
   }
 }
 

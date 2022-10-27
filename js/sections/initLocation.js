@@ -5,12 +5,12 @@ import {
   animateTitleIn,
 } from '../utils/gsapAnimations.js';
 
-export default function initPurpose() {
-  const purpose = document.querySelector('.info__image.purpose');
-  const imageWrapperTop = purpose.querySelector(
+export default function initLocation() {
+  const location = document.querySelector('.info__image.location');
+  const imageWrapperTop = location.querySelector(
     '.info__image__images__top__wrapper'
   );
-  const imageWrapperBottom = purpose.querySelector(
+  const imageWrapperBottom = location.querySelector(
     '.info__image__images__bottom__wrapper'
   );
   const imageRevealTop = imageWrapperTop.querySelector('.image__reveal');
@@ -19,32 +19,32 @@ export default function initPurpose() {
   const imageBottom = imageWrapperBottom.querySelector('img');
 
   animateTitleIn(
-    '.purpose .info__image__header__title h2 span, .purpose .info__image__header__title h4 span',
+    '.location .info__image__header__title h2 span, .location .info__image__header__title h4 span',
     0,
-    '.purpose .info__image__header__title',
+    '.location .info__image__container__header',
     'bottom bottom'
   );
 
   animateLineIn(
-    '.purpose .info__image__header__line',
-    '.purpose .info__image__header__title',
+    '.location .info__image__header__line',
+    '.location .info__image__container__header',
     'bottom bottom'
   );
 
   animateTextIn(
-    '.purpose .info__image__container__text p',
+    '.location .info__image__container__text p',
     0.1,
     0.7,
-    '.purpose .info__image__container__text',
-    'bottom bottom'
+    '.location .info__image__container__text',
+    '50% bottom'
   );
 
-  animateImageIn(imageRevealTop, imageTop, imageWrapperTop, '50% bottom');
+  animateImageIn(imageRevealTop, imageTop, imageWrapperTop, '20% bottom');
 
   animateImageIn(
     imageRevealBottom,
     imageBottom,
     imageWrapperBottom,
-    '50% bottom'
+    '20% bottom'
   );
 }
