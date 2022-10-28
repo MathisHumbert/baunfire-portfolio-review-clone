@@ -1,0 +1,231 @@
+.title__location__swiper {
+  @extend %container;
+}
+
+.title__location__swiper__wrapper {
+  position: relative;
+  display: flex;
+  flex-wrap: wrap;
+  align-items: flex-end;
+  justify-content: center;
+}
+
+.title__location__swiper__images__left {
+  position: relative;
+  width: 20%;
+  padding-right: calc($gap-padding * 2);
+  padding-bottom: 2.25em;
+}
+
+.title__location__swiper__images__middle {
+  position: relative;
+  width: 60%;
+  display: flex;
+  flex-direction: column;
+}
+
+.title__location__swiper__images__right {
+  position: relative;
+  width: 20%;
+  padding-left: calc($gap-padding * 2);
+  padding-bottom: 2.25em;
+}
+
+.title__location__swiper__images__left__wrapper,
+.title__location__swiper__images__middle__wrapper,
+.title__location__swiper__images__right__wrapper {
+  position: relative;
+  width: 100%;
+  background-color: $color-inactive;
+  overflow: hidden;
+}
+
+.title__location__swiper__images__left__wrapper {
+  width: calc(150% + $gap-padding);
+  margin-left: calc(($gap-padding * (-1)) - 50%);
+}
+
+.title__location__swiper__images__right__wrapper {
+  width: calc(150% + $gap-padding);
+}
+
+.title__location__swiper__images__left__wrapper::before,
+.title__location__swiper__images__middle__wrapper::before,
+.title__location__swiper__images__right__wrapper::before {
+  content: '';
+  padding-top: 75%;
+  display: block;
+}
+
+.title__location__swiper__images__left__image,
+.title__location__swiper__images__middle__image,
+.title__location__swiper__images__right__image {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+}
+
+.title__location__swiper__images__left__image,
+.title__location__swiper__images__right__image {
+  filter: blur(0.2em);
+  transform: cale(1.3);
+}
+
+.title__location__swiper__images__left__image img,
+.title__location__swiper__images__middle__image img,
+.title__location__swiper__images__right__image img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  height: 100%;
+  width: 100%;
+  object-fit: cover;
+  vertical-align: center;
+
+  &:nth-child(2) {
+    transform: translateX(100%);
+  }
+
+  &:nth-child(3) {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+
+  &:nth-child(4) {
+    opacity: 0;
+    transform: translateX(-100%);
+  }
+}
+
+.title__location__swiper__pagination {
+  position: relative;
+  width: 100%;
+  display: flex;
+  gap: 1em;
+  margin-top: 1.25em;
+}
+
+.title__location__swiper__pagination__bar {
+  height: 1em;
+  width: 100%;
+  position: relative;
+  background: transparent;
+
+  &::before {
+    content: '';
+    width: 100%;
+    height: 2px;
+    background: $color-white;
+    opacity: 0.25;
+    position: absolute;
+  }
+}
+
+.title__location__swiper__pagination__progress {
+  position: absolute;
+  height: 2px;
+  width: 100%;
+  background: $color-white;
+  opacity: 0;
+  transform: scale(0, 1);
+  transform-origin: left top;
+}
+
+.title__location__swiper__infos {
+  width: 60%;
+  padding-top: 2em;
+}
+
+.title__location__swiper__infos__wrapper {
+  position: relative;
+  overflow: hidden;
+}
+
+.title__location__swiper__infos__title {
+  top: 0;
+  left: 0;
+  position: absolute;
+
+  span {
+    display: inline-block;
+  }
+
+  &:nth-child(1) {
+    position: relative;
+  }
+
+  &:nth-child(2) {
+    span {
+      transform: translateY(100%);
+    }
+  }
+
+  &:nth-child(3) {
+    span {
+      transform: translateY(-100%);
+    }
+  }
+
+  &:nth-child(4) {
+    span {
+      transform: translateY(-100%);
+    }
+  }
+
+  h4 {
+    @extend %title-h4;
+
+    overflow: hidden;
+    color: $color-white;
+    text-align: center;
+  }
+}
+
+.title__location__swipper__left__arrow,
+.title__location__swipper__right__arrow {
+  position: absolute;
+  left: 0;
+  top: 0;
+  width: 70%;
+  transform: translate(5%, -80%);
+  cursor: pointer;
+  overflow: hidden;
+
+  &:hover {
+    svg {
+      transform: translate(100%, 103.5%) rotate(0.001deg) scale(0.8);
+
+      &:last-child {
+        transform: translate(-100%, 3.5%) rotate(0.001deg) scale(0.8);
+      }
+    }
+  }
+
+  svg {
+    width: 100%;
+    transform: translate(0%, 3.5%) rotate(0.001deg) scale(0.8);
+    position: relative;
+    height: auto;
+    vertical-align: middle;
+    transition: $animation-primary;
+
+    &:last-child {
+      position: absolute;
+      transform: translate(-200%, -103.5%) rotate(0.001deg) scale(0.8);
+
+      path {
+        fill: $color-secondary;
+      }
+    }
+
+    path {
+      fill: $color-primary;
+    }
+  }
+}
+
+.title__location__swipper__right__arrow {
+  transform: translate(5%, -80%) scale(-1, 1);
+}

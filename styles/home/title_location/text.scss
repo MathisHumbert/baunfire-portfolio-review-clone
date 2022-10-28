@@ -1,0 +1,69 @@
+.title__location {
+  @extend %section;
+
+  background: $color-dark;
+}
+
+.title__location__text {
+  @extend %container-medium;
+
+  display: flex;
+  flex-wrap: wrap;
+  position: relative;
+  padding-bottom: calc($section-padding * 0.5);
+}
+
+.title__location__text__wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.title__location__text__part {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.title__location__text__part__text {
+  display: flex;
+}
+
+.title__location__text__part__text.center {
+  justify-content: center;
+}
+
+.title__location__text__part__text.mondwest span {
+  @extend %title-mondwest;
+}
+
+.title__location__text__part__text h4 {
+  @extend %title-h4;
+
+  color: $color-primary;
+  // overflow: hidden;
+  padding-bottom: 1em;
+
+  span {
+    display: inline-block;
+    // transform: translateY(115%) rotate(5deg);
+  }
+}
+
+.title__location__text__part__text h2 {
+  @extend %title-h2;
+
+  color: $color-secondary;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 0.25em;
+  // overflow: hidden;
+
+  span {
+    display: inline-block;
+    padding: 0 0.025em;
+    margin: 0 -0.065em 0 -0.065em;
+    // transform: translateY(115%) rotate(5deg);
+  }
+}

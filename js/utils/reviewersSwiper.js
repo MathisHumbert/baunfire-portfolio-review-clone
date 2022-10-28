@@ -1,15 +1,11 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import {
-  animateTitleIn,
-  animateImageIn,
-  animateLineIn,
-} from '../utils/gsapAnimations.js';
+import { animateImageIn } from './gsapAnimations.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
-export default function initReviewers() {
+export default function reviewersSwiper(container) {
   gsap.registerEffect({
     name: 'animateSwiperImage',
     extendTimeline: true,
@@ -66,43 +62,29 @@ export default function initReviewers() {
     },
   });
 
-  const imageRevealLeft = document.querySelector(
+  const imageRevealLeft = container.querySelector(
     '.reviewers__section__images__left .image__reveal'
   );
-  const imageRevealRight = document.querySelector(
+  const imageRevealRight = container.querySelector(
     '.reviewers__section__images__right .image__reveal'
   );
-  const imagesWrapper = document.querySelector('.reviewers__section__images');
+  const imagesWrapper = container.querySelector('.reviewers__section__images');
 
-  const images = gsap.utils.toArray('.reviewers__images__right__image img');
-  const videos = gsap.utils.toArray('.reviewers__images__left__image video');
-  const bars = gsap.utils.toArray('.reviewers__swiper__pagination__progress');
-  const texts = gsap.utils.toArray('.reviewers__images__infos__title');
+  const images = container.querySelectorAll(
+    '.reviewers__images__right__image img'
+  );
+  const videos = container.querySelectorAll(
+    '.reviewers__images__left__image video'
+  );
+  const bars = container.querySelectorAll(
+    '.reviewers__swiper__pagination__progress'
+  );
+  const texts = container.querySelectorAll('.reviewers__images__infos__title');
 
   animateImageIn(
     [imageRevealLeft, imageRevealRight],
     [videos[0], images[0]],
     imagesWrapper,
-    '50% bottom'
-  );
-
-  animateTitleIn(
-    '.reviewers__section__header h2 span',
-    0.05,
-    '.reviewers__section__header',
-    '50% bottom'
-  );
-
-  animateTitleIn(
-    '.reviewers__section__header h4 span',
-    0.05,
-    '.reviewers__section__header',
-    '50% bottom'
-  );
-
-  animateLineIn(
-    '.reviewers__section__line',
-    '.reviewers__section__header',
     '50% bottom'
   );
 
@@ -171,7 +153,6 @@ export default function initReviewers() {
     start: '50% bottom',
     end: 'bottom top',
     onEnter: () => {
-      console.log('enter');
       main.play();
       videos.forEach((video) => video.play());
     },
