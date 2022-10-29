@@ -84,6 +84,10 @@
   object-fit: cover;
   vertical-align: center;
 
+  &:nth-child(1) {
+    transform: scale(2, 2);
+  }
+
   &:nth-child(2) {
     transform: translateX(100%);
   }
@@ -136,16 +140,17 @@
 .title__location__swiper__infos {
   width: 60%;
   padding-top: 2em;
+  display: flex;
 }
 
 .title__location__swiper__infos__wrapper {
   position: relative;
+  margin: 0 auto;
   overflow: hidden;
 }
 
 .title__location__swiper__infos__title {
   top: 0;
-  left: 0;
   position: absolute;
 
   span {
@@ -180,6 +185,9 @@
     overflow: hidden;
     color: $color-white;
     text-align: center;
+    padding-right: 1em;
+    padding-left: 1em;
+    white-space: nowrap;
   }
 }
 
@@ -189,7 +197,7 @@
   left: 0;
   top: 0;
   width: 70%;
-  transform: translate(5%, -80%);
+  transform: translate(10%, -40%);
   cursor: pointer;
   overflow: hidden;
 
@@ -226,6 +234,6 @@
   }
 }
 
-.title__location__swipper__right__arrow {
-  transform: translate(5%, -80%) scale(-1, 1);
+.title__location__swipper__left__arrow {
+  transform: translate(30%, -40%) scale(-1, 1);
 }

@@ -7,12 +7,13 @@
 
 body {
   font-family: $font-dm-sans;
-  width: 100%;
+  width: 100vw;
   -webkit-font-smoothing: antialiased;
   position: relative;
   background-color: var(--color-light);
   font-size: 16px;
   font-size: clamp(16px, 1.2vw, 19px);
+  overflow-x: hidden;
 }
 
 .space {

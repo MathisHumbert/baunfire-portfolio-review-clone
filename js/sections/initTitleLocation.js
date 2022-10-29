@@ -1,6 +1,8 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import { animateImageIn } from '../utils/gsapAnimations.js';
+
 gsap.registerPlugin(ScrollTrigger);
 
 export default function initTitleLocation() {
@@ -60,37 +62,50 @@ export default function initTitleLocation() {
     },
   });
 
-  const container = document.querySelector('.title__location');
-  // const imageRevealLeft = container.querySelector(
-  //   '.reviewers__section__images__left .image__reveal'
-  // );
-  // const imageRevealRight = container.querySelector(
-  //   '.reviewers__section__images__right .image__reveal'
-  // );
-  // const imagesWrapper = container.querySelector('.reviewers__section__images');
+  const imageRevealLeft = document.querySelector(
+    '.title__location__swiper__images__left .image__reveal'
+  );
+
+  const imageRevealMiddle = document.querySelector(
+    '.title__location__swiper__images__middle .image__reveal'
+  );
+
+  const imageRevealRight = document.querySelector(
+    '.title__location__swiper__images__right .image__reveal'
+  );
+
+  const imagesWrapper = document.querySelector(
+    '.title__location__swiper__images__middle'
+  );
 
   const leftImages = gsap.utils.toArray(
     '.title__location__swiper__images__left img'
   );
-
   const middleImages = gsap.utils.toArray(
     '.title__location__swiper__images__middle img'
   );
   const rightImages = gsap.utils.toArray(
     '.title__location__swiper__images__right img'
   );
+  const bars = gsap.utils.toArray(
+    '.title__location__swiper__pagination__progress'
+  );
+  const texts = gsap.utils.toArray('.title__location__swiper__infos__title');
+  const leftArrow = document.querySelector(
+    '.title__location__swipper__left__arrow'
+  );
+  const rightArrow = document.querySelector(
+    '.title__location__swipper__right__arrow'
+  );
 
-  // const bars = container.querySelectorAll(
-  //   '.reviewers__swiper__pagination__progress'
-  // );
-  // const texts = container.querySelectorAll('.reviewers__images__infos__title');
+  console.log(imageRevealLeft, imageRevealMiddle, imageRevealRight);
 
-  // animateImageIn(
-  //   [imageRevealLeft, imageRevealRight],
-  //   [videos[0], images[0]],
-  //   imagesWrapper,
-  //   '50% bottom'
-  // );
+  animateImageIn(
+    [imageRevealLeft, imageRevealMiddle, imageRevealRight],
+    [leftImages[0], middleImages[0], rightImages[0]],
+    imagesWrapper,
+    '50% bottom'
+  );
 
   const animateInfinitSwiperFirst = gsap
     .timeline({
@@ -98,24 +113,36 @@ export default function initTitleLocation() {
       repeatDelay: 14,
       delay: 3,
     })
-    .animateSwiperImage([middleImages[0], middleImages[1], middleImages[2]]);
-  //   .animateSwiperText([texts[0], texts[1], texts[2]], '-=1');
+    .animateSwiperImage([leftImages[0], leftImages[1], leftImages[2]])
+    .animateSwiperImage([middleImages[0], middleImages[1], middleImages[2]], 0)
+    .animateSwiperImage([rightImages[0], rightImages[1], rightImages[2]], 0)
+    .animateSwiperText([texts[0], texts[1], texts[2]], '-=1');
   const animateInfinitSwiperSecond = gsap
     .timeline({
       repeat: -1,
       repeatDelay: 14,
       delay: 7,
     })
-    .animateSwiperImage([[middleImages[1], middleImages[2], middleImages[3]]]);
-  //   .animateSwiperText([texts[1], texts[2], texts[0]], '-=1');
+    .animateSwiperImage([[leftImages[1], leftImages[2], leftImages[3]]])
+    .animateSwiperImage(
+      [[middleImages[1], middleImages[2], middleImages[3]]],
+      0
+    )
+    .animateSwiperImage([[rightImages[1], rightImages[2], rightImages[3]]], 0)
+    .animateSwiperText([texts[1], texts[2], texts[3]], '-=1');
   const animateInfinitSwiperThird = gsap
     .timeline({
       repeat: -1,
       repeatDelay: 14,
       delay: 11,
     })
-    .animateSwiperImage([[middleImages[2], middleImages[3], middleImages[0]]]);
-  // .animateSwiperText([texts[2], texts[0], texts[1]], '-=1');
+    .animateSwiperImage([[leftImages[2], leftImages[3], leftImages[0]]])
+    .animateSwiperImage(
+      [[middleImages[2], middleImages[3], middleImages[0]]],
+      0
+    )
+    .animateSwiperImage([[rightImages[2], rightImages[3], rightImages[0]]], 0)
+    .animateSwiperText([texts[2], texts[3], texts[0]], '-=1');
 
   const animateInfinitSwiperFourth = gsap
     .timeline({
@@ -123,57 +150,105 @@ export default function initTitleLocation() {
       repeatDelay: 14,
       delay: 15,
     })
-    .animateSwiperImage([[middleImages[3], middleImages[0], middleImages[1]]]);
-  // .animateSwiperText([texts[2], texts[0], texts[1]], '-=1');
+    .animateSwiperImage([[leftImages[3], leftImages[0], leftImages[1]]])
+    .animateSwiperImage(
+      [[middleImages[3], middleImages[0], middleImages[1]]],
+      0
+    )
+    .animateSwiperImage([[rightImages[3], rightImages[0], rightImages[1]]], 0)
+    .animateSwiperText([texts[3], texts[0], texts[1]], '-=1');
 
-  // const animateInfinitBarTextFirst = gsap
-  //   .timeline({
-  //     repeat: -1,
-  //     repeatDelay: 7,
-  //     delay: 0,
-  //   })
-  //   .animateSwiperBar(bars[0]);
-  // const animateInfinitBarTextSecond = gsap
-  //   .timeline({
-  //     repeat: -1,
-  //     repeatDelay: 7,
-  //     delay: 4,
-  //   })
-  //   .animateSwiperBar(bars[1]);
-  // const animateInfinitBarTextThird = gsap
-  //   .timeline({
-  //     repeat: -1,
-  //     repeatDelay: 7,
-  //     delay: 8,
-  //   })
-  //   .animateSwiperBar(bars[2]);
+  const animateInfinitBarTextFirst = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 11,
+      delay: 0,
+    })
+    .animateSwiperBar(bars[0]);
+  const animateInfinitBarTextSecond = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 11,
+      delay: 4,
+    })
+    .animateSwiperBar(bars[1]);
+  const animateInfinitBarTextThird = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 11,
+      delay: 8,
+    })
+    .animateSwiperBar(bars[2]);
+  const animateInfinitBarTextFourth = gsap
+    .timeline({
+      repeat: -1,
+      repeatDelay: 11,
+      delay: 12,
+    })
+    .animateSwiperBar(bars[3]);
 
   const main = gsap.timeline();
 
   main
+    .addLabel('first')
     .add(animateInfinitSwiperFirst, 0)
+    .add(animateInfinitBarTextFirst, 0)
+    .addLabel('second')
     .add(animateInfinitSwiperSecond, 0)
+    .add(animateInfinitBarTextSecond, 0)
+    .addLabel('third')
     .add(animateInfinitSwiperThird, 0)
-    .add(animateInfinitSwiperFourth, 0);
-  // .add(animateInfinitBarTextFirst, 0)
-  // .add(animateInfinitBarTextSecond, 0)
-  // .add(animateInfinitBarTextThird, 0);
+    .add(animateInfinitBarTextThird, 0)
+    .addLabel('fourth')
+    .add(animateInfinitSwiperFourth, 0)
+    .add(animateInfinitBarTextFourth, 0);
 
-  // ScrollTrigger.create({
-  //   trigger: imagesWrapper,
-  //   start: '50% bottom',
-  //   end: 'bottom top',
-  //   onEnter: () => {
-  //     main.play();
-  //   },
-  //   onLeave: () => {
-  //     main.pause();
-  //   },
-  //   onEnterBack: () => {
-  //     main.play();
-  //   },
-  //   onLeaveBack: () => {
-  //     main.pause();
-  //   },
-  // });
+  const handlePreviousClick = (current) => {
+    if (current === 'first') return 'fourth';
+    if (current === 'second') return 'first';
+    if (current === 'third') return 'second';
+    if (current === 'fourth') return 'third';
+  };
+
+  const handleNextClick = (current) => {
+    if (current === 'first') return 'second';
+    if (current === 'second') return 'third';
+    if (current === 'third') return 'fourth';
+    if (current === 'fourth') return 'first';
+  };
+
+  leftArrow.addEventListener('mouseenter', () => main.pause());
+  rightArrow.addEventListener('mouseenter', () => main.pause());
+  leftArrow.addEventListener('mouseleave', () => main.play());
+  rightArrow.addEventListener('mouseleave', () => main.play());
+  leftArrow.addEventListener('click', () =>
+    main.tweenTo(handlePreviousClick(main.currentLabel()), {
+      duration: 1.5,
+      onComplete: () => main.play(),
+    })
+  );
+  rightArrow.addEventListener('click', () =>
+    main.tweenTo(handleNextClick(main.currentLabel()), {
+      duration: 1.5,
+      onComplete: () => main.play(),
+    })
+  );
+
+  ScrollTrigger.create({
+    trigger: '.title__location__swiper',
+    start: '50% bottom',
+    end: 'bottom top',
+    onEnter: () => {
+      main.play();
+    },
+    onLeave: () => {
+      main.pause();
+    },
+    onEnterBack: () => {
+      main.play();
+    },
+    onLeaveBack: () => {
+      main.pause();
+    },
+  });
 }
