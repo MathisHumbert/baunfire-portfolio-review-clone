@@ -1,7 +1,11 @@
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
-import { animateImageIn } from '../utils/gsapAnimations.js';
+import {
+  animateImageIn,
+  animateTitleIn,
+  animateTitleInWidthDelay,
+} from '../utils/gsapAnimations.js';
 
 gsap.registerPlugin(ScrollTrigger);
 
@@ -77,7 +81,6 @@ export default function initTitleLocation() {
   const imagesWrapper = document.querySelector(
     '.title__location__swiper__images__middle'
   );
-
   const leftImages = gsap.utils.toArray(
     '.title__location__swiper__images__left img'
   );
@@ -98,7 +101,21 @@ export default function initTitleLocation() {
     '.title__location__swipper__right__arrow'
   );
 
-  console.log(imageRevealLeft, imageRevealMiddle, imageRevealRight);
+  const titleContainer = document.querySelectorAll(
+    '.title__location__text__part__text'
+  )[0];
+  const firstTitle = '.title__location__text__part__text h4 span';
+  const secondTitle = '.title__location__text__part__text h2 span';
+
+  animateTitleIn(firstTitle, 0.05, titleContainer, 'bottom bottom');
+
+  animateTitleInWidthDelay(
+    secondTitle,
+    0.05,
+    0.2,
+    titleContainer,
+    'bottom bottom'
+  );
 
   animateImageIn(
     [imageRevealLeft, imageRevealMiddle, imageRevealRight],
@@ -187,7 +204,7 @@ export default function initTitleLocation() {
     })
     .animateSwiperBar(bars[3]);
 
-  const main = gsap.timeline();
+  const main = gsap.timeline({ paused: true });
 
   main
     .addLabel('first')
@@ -235,7 +252,7 @@ export default function initTitleLocation() {
   );
 
   ScrollTrigger.create({
-    trigger: '.title__location__swiper',
+    trigger: imagesWrapper,
     start: '50% bottom',
     end: 'bottom top',
     onEnter: () => {

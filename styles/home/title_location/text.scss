@@ -42,12 +42,12 @@
   @extend %title-h4;
 
   color: $color-primary;
-  // overflow: hidden;
-  padding-bottom: 1em;
+  overflow: hidden;
+  margin-bottom: 1em;
 
   span {
     display: inline-block;
-    // transform: translateY(115%) rotate(5deg);
+    transform: translateY(115%) rotate(5deg);
   }
 }
 
@@ -58,12 +58,12 @@
   display: inline-flex;
   flex-wrap: wrap;
   gap: 0 0.25em;
-  // overflow: hidden;
+  overflow: hidden;
 
   span {
     display: inline-block;
     padding: 0 0.025em;
     margin: 0 -0.065em 0 -0.065em;
-    // transform: translateY(115%) rotate(5deg);
+    transform: translateY(115%) rotate(5deg);
   }
 }

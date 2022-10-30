@@ -8,7 +8,8 @@ import initPurpose from './js/sections/initPurpose.js';
 import initMenu from './js/sections/initMenu.js';
 import initHeader from './js/sections/initHeader.js';
 import initBigTitle from './js/sections/initBigTitle.js';
-import initTitleImage from './js/sections/initTitleImage.js';
+import initFirstTitleImage from './js/sections/initFirstTitleImage.js';
+import initSecondTitleImage from './js/sections/initSecondTitleImage.js';
 import initLocation from './js/sections/initLocation.js';
 import initFirstReviewers from './js/sections/initFirstReviewers.js';
 import initSecondReviewers from './js/sections/initSecondReviewers.js';
@@ -25,10 +26,11 @@ const init = () => {
   initPurpose();
   initFirstReviewers();
   initBigTitle();
-  initTitleImage();
+  initFirstTitleImage();
   initLocation();
   initSecondReviewers();
   initTitleLocation();
+  initSecondTitleImage();
 };
 
 window.addEventListener('load', () => init());
