@@ -1,0 +1,268 @@
+.footer {
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  background: $color-dark;
+}
+
+.footer__top {
+  padding-top: calc($section-padding * 1.75);
+  padding-bottom: calc($section-padding * 0.8);
+
+  @include media('>540px') {
+    padding-top: calc($section-padding * 0.8);
+  }
+
+  @include media('>720px') {
+    padding-top: calc($section-padding * 1.5);
+  }
+
+  @include media('>1024px') {
+    padding-top: calc($section-padding * 0.85);
+    padding-bottom: calc($section-padding * 0.33);
+  }
+}
+
+.footer__top__container {
+  @extend %container;
+}
+
+.footer__top__wrapper {
+  display: block;
+  position: relative;
+  width: 100%;
+}
+
+.footer__top__part {
+  display: flex;
+  flex-direction: column;
+  position: relative;
+  width: 100%;
+}
+
+.footer__top__part__text {
+  display: flex;
+}
+
+.footer__top__part__text.center {
+  justify-content: center;
+}
+
+.footer__top__part__text.mondwest span {
+  @extend %title-mondwest;
+
+  color: $color-secondary;
+}
+
+.footer__top__part__text h2 {
+  @extend %title-h2;
+
+  color: $color-white;
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 0 0.25em;
+  overflow: hidden;
+
+  span {
+    display: inline-block;
+    padding: 0 0.025em;
+    margin: 0 -0.065em 0 -0.065em;
+    transform: translateY(115%) rotate(5deg);
+  }
+}
+
+.footer .rounded__button__wrapper {
+  display: none;
+  position: absolute;
+  top: 40%;
+  right: calc($container-padding - $gap-padding);
+
+  @include media('>720px') {
+    display: flex;
+  }
+}
+
+.footer .rounded__button__fill {
+  background: $color-secondary;
+}
+
+.footer .rounded__button__text {
+  color: $color-dark;
+
+  h4 {
+    color: $color-dark;
+  }
+
+  span {
+    white-space: nowrap;
+  }
+
+  svg {
+    width: 0.65em;
+    transform: rotate(-90deg);
+    margin-right: 0.25em;
+
+    path {
+      fill: $color-dark;
+    }
+  }
+}
+
+.footer .rounded__button:hover .rounded__button__text svg {
+  transform: rotate(225deg);
+}
+
+.footer__bottom {
+  padding-bottom: calc($section-padding * 0.5);
+
+  @include media('>720px') {
+    padding-bottom: $gap-padding;
+  }
+}
+
+.footer__bottom__container {
+  @extend %container;
+
+  @include media('>720px') {
+    flex-direction: row;
+  }
+}
+
+.footer__bottom__wrapper {
+  position: relative;
+  display: flex;
+  flex-direction: column-reverse;
+  justify-content: space-between;
+  padding-top: calc($section-padding * 1);
+
+  @include media('>720px') {
+    padding-top: $gap-padding;
+    flex-direction: row;
+  }
+}
+
+.footer__bottom__left {
+  padding-top: calc($section-padding * 1);
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+
+  @include media('>720px') {
+    padding-top: 0;
+  }
+}
+
+.footer__bottom__left__logo {
+  display: flex;
+  gap: 0.45em;
+  align-items: center;
+  margin-bottom: 1.5em;
+}
+
+.footer__bottom__left__logo__img {
+  width: 2em;
+
+  filter: invert(99%) sepia(94%) saturate(4%) hue-rotate(224deg)
+    brightness(105%) contrast(100%);
+}
+
+.footer__bottom__left__logo__title {
+  @extend %title-small;
+
+  color: $color-white;
+}
+
+.footer__bottom__left__text {
+  @extend %title-text;
+}
+
+.footer__bottom__right {
+  display: flex;
+  gap: calc($gap-padding * 2);
+}
+
+.footer__bottom__right__social,
+.footer__bottom__right__contact {
+  width: 50%;
+  display: flex;
+  flex-direction: column;
+
+  h4 {
+    @extend %title-small;
+
+    color: $color-white;
+    margin-bottom: 0.5em;
+  }
+}
+
+.footer__bottom__right__social__link {
+  display: flex;
+  align-items: center;
+
+  &:hover {
+    svg {
+      opacity: 1;
+      transform: rotate(-135deg);
+    }
+  }
+
+  svg {
+    width: 0.66em;
+    margin-right: 0.5em;
+    transform: rotate(-45deg);
+    opacity: 0.5;
+    height: auto;
+    transition: $animation-primary;
+
+    path {
+      fill: $color-light;
+    }
+  }
+}
+
+.footer__bottom__right__contact__link,
+.footer__bottom__right__social__link {
+  margin-top: 0.25em;
+
+  span {
+    color: $color-white;
+    opacity: 0.5;
+    display: block;
+    line-height: 1.2em;
+    transition: $animation-primary;
+  }
+
+  span:last-child {
+    position: absolute;
+    top: 0;
+    opacity: 1;
+    transform: translateY(100%);
+  }
+
+  &:hover {
+    span {
+      transform: translateY(-100%);
+    }
+
+    span:last-child {
+      transform: translateY(0%);
+    }
+  }
+}
+
+.footer .footer__bottom__right__social__link div,
+.footer__bottom__right__contact__link div {
+  position: relative;
+  overflow: hidden;
+}
+
+.footer__bottom__line {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 1px;
+  background: $color-white;
+  transform-origin: left top;
+  transform: scale(0, 1);
+}

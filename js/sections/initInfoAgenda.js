@@ -41,7 +41,6 @@ export default function initInfoAgenda() {
   agendaRows.forEach((row) => {
     const titles = row.querySelectorAll('h4 span');
     const line = row.querySelector('.info__agenda__line');
-    console.log(titles);
 
     animateTitleIn(titles, 0, row, 'bottom bottom');
     animateLineIn(line, row, 'bottom bottom');

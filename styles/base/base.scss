@@ -2,7 +2,7 @@
 *:after,
 *:before {
   box-sizing: border-box;
-  // user-select: none;
+  user-select: none;
 }
 
 body {
@@ -13,19 +13,24 @@ body {
   background-color: var(--color-light);
   font-size: 16px;
   font-size: clamp(16px, 1.2vw, 19px);
-  overflow-x: hidden;
+  overflow: hidden;
 }
 
-.space {
-  height: 300vh;
+main {
+  box-sizing: border-box;
+  overflow: hidden;
+  width: 100vw;
+  position: fixed;
+  height: 100%;
+  background: var(--color-light);
+  display: block;
 }
 
-// main {
-//   box-sizing: border-box;
-//   overflow: hidden;
-//   width: 100vw;
-//   position: fixed;
-//   height: 100%;
-//   background: var(--color-light);
-//   display: block;
-// }
+.main__wrap {
+  min-height: 100vh;
+  width: 100vw;
+  box-sizing: border-box;
+  will-change: transform;
+  position: fixed;
+  display: block;
+}

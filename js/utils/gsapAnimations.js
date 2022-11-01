@@ -16,6 +16,7 @@ export function animateTitleIn(target, stagger = 0.05, trigger, start) {
 
     ease: 'animation-smooth',
     scrollTrigger: {
+      scroller: '[data-scroll-container]',
       trigger,
       start,
     },
@@ -37,6 +38,7 @@ export function animateTitleInWidthDelay(
     delay,
     ease: 'animation-smooth',
     scrollTrigger: {
+      scroller: '[data-scroll-container]',
       trigger,
       start,
     },
@@ -57,6 +59,7 @@ export function animateTextIn(
     ease: 'animation-smooth',
     duration,
     scrollTrigger: {
+      scroller: '[data-scroll-container]',
       trigger,
       start,
     },
@@ -69,6 +72,7 @@ export function animateLineIn(target, trigger, start) {
     duration: 1,
     ease: 'linear',
     scrollTrigger: {
+      scroller: '[data-scroll-container]',
       trigger,
       start,
     },
@@ -87,6 +91,7 @@ export function animateImageIn(revealTarget, imageTarget, trigger, start) {
   );
 
   ScrollTrigger.create({
+    scroller: '[data-scroll-container]',
     trigger,
     start,
     animation: tl,

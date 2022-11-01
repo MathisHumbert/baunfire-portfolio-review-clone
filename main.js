@@ -2,6 +2,8 @@ import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/all';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
 
+import LocomotiveScroll from 'locomotive-scroll';
+
 import './styles/index.scss';
 
 import initPurpose from './js/sections/initPurpose.js';
@@ -15,6 +17,8 @@ import initFirstReviewers from './js/sections/initFirstReviewers.js';
 import initSecondReviewers from './js/sections/initSecondReviewers.js';
 import initTitleLocation from './js/sections/initTitleLocation.js';
 import initInfoAgenda from './js/sections/initInfoAgenda.js';
+import initSubmit from './js/sections/initSubmit.js';
+import initFooter from './js/sections/initFooter.js';
 
 gsap.registerPlugin(CustomEase, ScrollTrigger);
 
@@ -33,6 +37,49 @@ const init = () => {
   initTitleLocation();
   initSecondTitleImage();
   initInfoAgenda();
+  initSubmit();
+  initFooter();
 };
 
 window.addEventListener('load', () => init());
+
+const locoScroll = new LocomotiveScroll({
+  el: document.querySelector('[data-scroll-container]'),
+  smooth: true,
+  multiplier: 1,
+  mobile: {
+    breakpoint: 0,
+    smooth: true,
+    multiplier: 1,
+  },
+  tablet: {
+    breakpoint: 0,
+    smooth: true,
+    multiplier: 1,
+  },
+});
+
+locoScroll.on('scroll', ScrollTrigger.update);
+
+ScrollTrigger.scrollerProxy('[data-scroll-container]', {
+  scrollTop(value) {
+    return arguments.length
+      ? locoScroll.scrollTo(value, 0, 0)
+      : locoScroll.scroll.instance.scroll.y;
+  },
+  getBoundingClientRect() {
+    return {
+      top: 0,
+      left: 0,
+      width: window.innerWidth,
+      height: window.innerHeight,
+    };
+  },
+  pinType: document.querySelector('[data-scroll-container]').style.transform
+    ? 'transform'
+    : 'fixed',
+});
+
+ScrollTrigger.addEventListener('refresh', () => locoScroll.update());
+
+ScrollTrigger.refresh();

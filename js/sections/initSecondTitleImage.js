@@ -31,6 +31,7 @@ export default function initTitleImage() {
     trigger: '.title__image.second',
     start: 'top bottom',
     end: 'bottom top',
+    scroller: '[data-scroll-container]',
     onEnter: () => {
       video.play();
     },

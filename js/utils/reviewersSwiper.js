@@ -152,6 +152,7 @@ export default function reviewersSwiper(container) {
     trigger: imagesWrapper,
     start: '50% bottom',
     end: 'bottom top',
+    scroller: '[data-scroll-container]',
     onEnter: () => {
       main.play();
       videos.forEach((video) => video.play());
