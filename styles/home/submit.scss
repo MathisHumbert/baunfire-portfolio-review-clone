@@ -1,0 +1,110 @@
+.submit {
+  @extend %section;
+
+  background: $color-secondary;
+}
+
+.submit__container {
+  @extend %container;
+
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  flex-wrap: nowrap;
+
+  @include media('>1024px') {
+    flex-direction: row;
+  }
+}
+
+.submit__header {
+  width: 100%;
+}
+
+.submit__header h2 {
+  @extend %title-h2;
+
+  font-size: calc($title-size * 1);
+  margin-bottom: -0.1em;
+  display: inline-flex;
+  overflow: hidden;
+
+  @include media('>1024px') {
+    font-size: calc($title-size * 0.8);
+  }
+
+  span {
+    @extend %title-mondwest;
+
+    overflow: hidden;
+    display: inline-block;
+    padding: 0em 0.065em 0.1em 0.025em;
+    margin: 0em -0.065em -0.1em -0.065em;
+  }
+}
+
+.submit__form {
+  width: 100%;
+  padding-top: $section-padding;
+  padding-left: 0;
+
+  @include media('>1024px') {
+    padding-top: 0;
+    padding-left: calc($gap-padding * 0.2);
+  }
+}
+
+.submit__form__container {
+  width: 100%;
+  position: relative;
+  display: flex;
+  flex-direction: column;
+}
+
+.submit__form__field {
+  width: 100%;
+  padding: 2em 0;
+}
+
+.submit__form__input {
+  width: 100%;
+  padding: 0.25em 0;
+  border: 0;
+  border-bottom: 1px solid $color-primary;
+  background: transparent;
+  color: $color-primary;
+  box-shadow: none;
+  outline: 0;
+  outline-width: 0px !important;
+  outline-offset: 0px;
+  display: block;
+  font-weight: 400;
+  font-family: $font-dm-sans;
+  font-size: calc($title-size * 0.5);
+
+  @include media('>540px') {
+    font-size: calc($title-size * 0.4);
+  }
+
+  @include media('>720px') {
+    font-size: calc($title-size * 0.3);
+  }
+
+  @include media('>1024px') {
+    font-size: calc($title-size * 0.2);
+  }
+
+  &::placeholder {
+    color: $color-primary;
+    font-family: $font-dm-sans;
+    font-weight: 400;
+  }
+
+  &:focus {
+    opacity: 0.5;
+  }
+}
+
+.submit__form .rounded__button__wrapper {
+  justify-content: center;
+}

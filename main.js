@@ -14,6 +14,7 @@ import initLocation from './js/sections/initLocation.js';
 import initFirstReviewers from './js/sections/initFirstReviewers.js';
 import initSecondReviewers from './js/sections/initSecondReviewers.js';
 import initTitleLocation from './js/sections/initTitleLocation.js';
+import initInfoAgenda from './js/sections/initInfoAgenda.js';
 
 gsap.registerPlugin(CustomEase, ScrollTrigger);
 
@@ -31,6 +32,7 @@ const init = () => {
   initSecondReviewers();
   initTitleLocation();
   initSecondTitleImage();
+  initInfoAgenda();
 };
 
 window.addEventListener('load', () => init());

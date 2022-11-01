@@ -1,9 +1,15 @@
+.rounded__button__wrapper {
+  width: 100%;
+  display: flex;
+  justify-content: flex-end;
+}
+
 .rounded__button {
   position: relative;
   cursor: pointer;
   border: 1px solid transparent;
   border-radius: 50%;
-  z-index: 100;
+  z-index: 2;
 
   &:hover .rounded__button__text {
     svg {
@@ -26,7 +32,6 @@
   height: clamp(9em, 12vw, 11em);
   border-radius: 50%;
   border: 0;
-  background: $color-dark;
 }
 
 .rounded__button__fill {
