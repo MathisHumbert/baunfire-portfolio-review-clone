@@ -1,3 +1,7 @@
+main.scrolled .nav__bar {
+  transform: translateY(-101%);
+}
+
 .nav__bar {
   pointer-events: all;
   position: absolute;
@@ -5,6 +9,8 @@
   left: 0;
   width: 100%;
   padding: 0 $gap-padding;
+
+  transition: $animation-slow;
 }
 
 .nav__bar__container {

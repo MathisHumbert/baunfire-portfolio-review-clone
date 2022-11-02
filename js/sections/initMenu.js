@@ -6,9 +6,19 @@ gsap.registerPlugin(CustomEase);
 CustomEase.create('animation-smooth', '0.7, 0, 0.3, 1');
 CustomEase.create('nav-translate', '.9, 0, .1, 1');
 
-export default function initMenu() {
+export default function initMenu(scroll) {
   const nav = document.querySelector('.nav');
   const navButton = document.querySelector('.nav__right__hamburger');
+
+  const menuLinks = document.querySelectorAll('.menu__item__container');
+
+  menuLinks.forEach((link) => {
+    const section = document.querySelector(link.getAttribute('data-target'));
+    link.addEventListener('click', () => {
+      navButton.click();
+      scroll.scrollTo(section);
+    });
+  });
 
   navButton.addEventListener('click', () => {
     if (nav.classList.contains('open')) {
@@ -89,7 +99,7 @@ export default function initMenu() {
         .to(
           '.nav__back',
           {
-            translateY: '91vh',
+            translateY: '98vh',
             duration: 1.2,
             ease: 'nav-translate',
           },

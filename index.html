@@ -39,7 +39,7 @@
         <div class="nav__menu">
           <ul class="nav__menu__items">
             <li class="nav__menu__item">
-              <div class="menu__item__container">
+              <div class="menu__item__container" data-target="#target-purpose">
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Purpose</span>
                   <span class="menu__item__text--alt">Purpose</span>
@@ -53,7 +53,7 @@
               </div>
             </li>
             <li class="nav__menu__item">
-              <div class="menu__item__container">
+              <div class="menu__item__container" data-target="#target-location">
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Location</span>
                   <span class="menu__item__text--alt">Location</span>
@@ -67,7 +67,7 @@
               </div>
             </li>
             <li class="nav__menu__item">
-              <div class="menu__item__container">
+              <div class="menu__item__container" data-target="#target-schedule">
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Schedule</span>
                   <span class="menu__item__text--alt">Schedule</span>
@@ -81,7 +81,7 @@
               </div>
             </li>
             <li class="nav__menu__item">
-              <div class="menu__item__container">
+              <div class="menu__item__container" data-target="#target-apply">
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Apply</span>
                   <span class="menu__item__text--alt">Apply</span>
@@ -95,7 +95,7 @@
               </div>
             </li>
             <li class="nav__menu__item">
-              <div class="menu__item__container">
+              <div class="menu__item__container" data-target="#target-contact">
                 <h2 class="menu__item__text">
                   <span class="menu__item__text--normal">Contact</span>
                   <span class="menu__item__text--alt">Contact</span>
@@ -126,8 +126,11 @@
           </div>
         </div>
       </nav>
+      <div class="custom__cursor">
+        <div class="custom__cursor__before"></div>
+      </div>
       <div class="main__wrap" data-scroll-container>
-        <header class="header" data-scroll-section>
+        <header class="header" data-scroll-section id="target-header">
           <div class="header__container">
             <div class="header__container__title">
               <h1>Baunfire</h1>
@@ -156,7 +159,7 @@
           </div>
         </header>
         <section class="info__image purpose" data-scroll-section>
-          <div class="info__image__container">
+          <div class="info__image__container" id="target-purpose">
             <div class="info__image__container__header">
               <div class="info__image__header__line"></div>
               <div class="info__image__header__title">
@@ -237,7 +240,11 @@
                 </h3>
               </div>
               <div class="rounded__button__wrapper">
-                <div class="rounded__button">
+                <div
+                  class="rounded__button"
+                  id="rounded__button__link"
+                  data-target="#target-apply"
+                >
                   <div class="rounded__button__container">
                     <div class="rounded__button__fill"></div>
                     <div class="rounded__button__text">
@@ -472,7 +479,7 @@
           </div>
         </section>
         <section class="info__image location" v data-scroll-section>
-          <div class="info__image__container">
+          <div class="info__image__container" id="target-location">
             <div class="info__image__container__header">
               <div class="info__image__header__line"></div>
               <div class="info__image__header__title">
@@ -551,7 +558,11 @@
                 </h3>
               </div>
               <div class="rounded__button__wrapper">
-                <div class="rounded__button">
+                <div
+                  class="rounded__button"
+                  id="rounded__button__link"
+                  data-target="#target-apply"
+                >
                   <div class="rounded__button__container">
                     <div class="rounded__button__fill"></div>
                     <div class="rounded__button__text">
@@ -902,7 +913,7 @@
           </div>
         </section>
         <section class="info__agenda" data-scroll-section>
-          <div class="info__agenda__container">
+          <div class="info__agenda__container" id="target-schedule">
             <div class="info__agenda__container__header">
               <div class="info__agenda__header__line"></div>
               <div class="info__agenda__header__title">
@@ -1069,7 +1080,11 @@
                 </h3>
               </div>
               <div class="rounded__button__wrapper">
-                <div class="rounded__button">
+                <div
+                  class="rounded__button"
+                  id="rounded__button__link"
+                  data-target="#target-apply"
+                >
                   <div class="rounded__button__container">
                     <div class="rounded__button__fill"></div>
                     <div class="rounded__button__text">
@@ -1087,7 +1102,7 @@
             </div>
           </div>
         </section>
-        <section class="submit" data-scroll-section>
+        <section class="submit" data-scroll-section id="target-apply">
           <div class="submit__container">
             <div class="submit__header">
               <h2>
@@ -1129,7 +1144,7 @@
                   />
                 </div>
                 <div class="rounded__button__wrapper">
-                  <div class="rounded__button">
+                  <div class="rounded__button" id="rounded__button__submit">
                     <div class="rounded__button__container">
                       <div class="rounded__button__fill"></div>
                       <div class="rounded__button__text">
@@ -1148,7 +1163,7 @@
             </div>
           </div>
         </section>
-        <footer class="footer" data-scroll-section>
+        <footer class="footer" data-scroll-section id="target-contact">
           <div class="footer__top">
             <div class="footer__top__container">
               <div class="footer__top__wrapper">
@@ -1172,7 +1187,11 @@
                   </div>
                 </div>
                 <div class="rounded__button__wrapper">
-                  <div class="rounded__button">
+                  <div
+                    class="rounded__button"
+                    id="rounded__button__link"
+                    data-target="#target-header"
+                  >
                     <div class="rounded__button__container">
                       <div class="rounded__button__fill"></div>
                       <div class="rounded__button__text">

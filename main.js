@@ -19,43 +19,30 @@ import initTitleLocation from './js/sections/initTitleLocation.js';
 import initInfoAgenda from './js/sections/initInfoAgenda.js';
 import initSubmit from './js/sections/initSubmit.js';
 import initFooter from './js/sections/initFooter.js';
-
+import initButtons from './js/sections/initButtons.js';
+import initCursor from './js/sections/initCursor.js';
+import initNavbar from './js/sections/initNavbar.js';
 gsap.registerPlugin(CustomEase, ScrollTrigger);
 
 CustomEase.create('animation-smooth', '0.7, 0, 0.3, 1');
 CustomEase.create('nav-translate', '.9, 0, .1, 1');
 
-const init = () => {
-  initMenu();
-  initHeader();
-  initPurpose();
-  initFirstReviewers();
-  initBigTitle();
-  initFirstTitleImage();
-  initLocation();
-  initSecondReviewers();
-  initTitleLocation();
-  initSecondTitleImage();
-  initInfoAgenda();
-  initSubmit();
-  initFooter();
-};
-
-window.addEventListener('load', () => init());
-
 const locoScroll = new LocomotiveScroll({
   el: document.querySelector('[data-scroll-container]'),
   smooth: true,
   multiplier: 1,
+  getDirection: true,
   mobile: {
     breakpoint: 0,
     smooth: true,
     multiplier: 1,
+    getDirection: true,
   },
   tablet: {
     breakpoint: 0,
     smooth: true,
     multiplier: 1,
+    getDirection: true,
   },
 });
 
@@ -83,3 +70,24 @@ ScrollTrigger.scrollerProxy('[data-scroll-container]', {
 ScrollTrigger.addEventListener('refresh', () => locoScroll.update());
 
 ScrollTrigger.refresh();
+
+const init = () => {
+  initMenu(locoScroll);
+  initButtons(locoScroll);
+  initHeader(locoScroll);
+  initCursor();
+  initNavbar(locoScroll);
+  initPurpose();
+  initFirstReviewers();
+  initBigTitle();
+  initFirstTitleImage();
+  initLocation();
+  initSecondReviewers();
+  initTitleLocation();
+  initSecondTitleImage();
+  initInfoAgenda();
+  initSubmit();
+  initFooter();
+};
+
+window.addEventListener('load', () => init());

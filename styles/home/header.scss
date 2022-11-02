@@ -5,6 +5,8 @@
   align-items: flex-end;
   padding-bottom: calc($section-padding + 7.5vh);
   position: relative;
+  pointer-events: all;
+  cursor: pointer;
 
   @include media('>1024px') {
     padding-bottom: calc($section-padding * 0.75);

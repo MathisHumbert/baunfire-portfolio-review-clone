@@ -5,7 +5,10 @@ gsap.registerPlugin(CustomEase);
 
 CustomEase.create('animation-smooth', '0.7, 0, 0.3, 1');
 
-export default function initHeader() {
+export default function initHeader(scroll) {
+  const header = document.querySelector('.header');
+
+  header.addEventListener('click', () => scroll.scrollTo('#target-purpose'));
   const tl = gsap.timeline();
 
   tl.from('.header__container__title h1', {

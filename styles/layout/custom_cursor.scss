@@ -1,0 +1,22 @@
+.custom__cursor {
+  width: 0.8em;
+  mix-blend-mode: normal;
+  background: $color-secondary;
+  position: fixed;
+  z-index: 900;
+  display: block;
+  border-radius: 50%;
+  transform: translate(-48%, -75%);
+  user-select: none;
+  transition: width 0.3s cubic-bezier(0.7, 0, 0.3, 1) 0s,
+    background-color 0.15s cubic-bezier(0.7, 0, 0.3, 1) 0.15s;
+  top: 0px;
+  left: 0px;
+  will-change: transform, width;
+}
+
+.custom__cursor__before {
+  display: block;
+  position: relative;
+  padding-top: 100%;
+}
