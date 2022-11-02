@@ -75,7 +75,7 @@ const init = () => {
   initMenu(locoScroll);
   initButtons(locoScroll);
   initHeader(locoScroll);
-  initCursor();
+  // initCursor();
   initNavbar(locoScroll);
   initPurpose();
   initFirstReviewers();
