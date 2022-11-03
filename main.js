@@ -22,6 +22,7 @@ import initFooter from './js/sections/initFooter.js';
 import initButtons from './js/sections/initButtons.js';
 import initCursor from './js/sections/initCursor.js';
 import initNavbar from './js/sections/initNavbar.js';
+
 gsap.registerPlugin(CustomEase, ScrollTrigger);
 
 CustomEase.create('animation-smooth', '0.7, 0, 0.3, 1');
@@ -75,8 +76,8 @@ const init = () => {
   initMenu(locoScroll);
   initButtons(locoScroll);
   initHeader(locoScroll);
-  initCursor();
   initNavbar(locoScroll);
+  initCursor();
   initPurpose();
   initFirstReviewers();
   initBigTitle();
