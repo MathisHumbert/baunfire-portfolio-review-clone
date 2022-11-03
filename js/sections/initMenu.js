@@ -67,10 +67,9 @@ export default function initMenu(scroll) {
         .to('.nav__left__title', { color: '#FFFFFF' }, '<')
         .to('.nav__bar__line', { background: '#FFFFFF' }, '<')
         .to(
-          '.nav__left__img',
+          '.nav__bar__left svg path',
           {
-            filter:
-              'invert(99%) sepia(94%) saturate(4%) hue-rotate(224deg) brightness(105%) contrast(100%)',
+            fill: '#fff',
           },
           '<'
         )
@@ -88,10 +87,9 @@ export default function initMenu(scroll) {
         .to('.nav__left__title', { color: '#1B1B1B' }, 0)
         .to('.nav__bar__line', { background: '#1B1B1B' }, 0)
         .to(
-          '.nav__left__img',
+          '.nav__bar__left svg path',
           {
-            filter:
-              'invert(0%) sepia(3%) saturate(14%) hue-rotate(7deg) brightness(87%) contrast(79%)',
+            fill: '#1B1B1B',
           },
           0
         )

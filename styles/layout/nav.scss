@@ -12,6 +12,73 @@
   z-index: 100;
 }
 
+.nav.theme__light {
+  .nav__back__color {
+    background: $color-light;
+  }
+
+  .nav__hamburger__bar {
+    background: $color-primary;
+  }
+
+  .nav__left__title {
+    color: $color-dark;
+  }
+
+  .nav__bar__line {
+    background: $color-dark;
+  }
+
+  .nav__bar__left svg path {
+    fill: $color-dark;
+  }
+}
+
+.nav.theme__dark,
+.nav.theme__secondary {
+  .nav__back__color {
+    background: $color-dark;
+  }
+
+  .nav__hamburger__bar {
+    background: $color-secondary;
+  }
+
+  .nav__left__title {
+    color: $color-white;
+  }
+
+  .nav__bar__line {
+    background: $color-white;
+  }
+
+  .nav__bar__left svg path {
+    fill: $color-white;
+  }
+}
+
+.nav.theme__primary {
+  .nav__back__color {
+    background: $color-primary;
+  }
+
+  .nav__hamburger__bar {
+    background: $color-secondary;
+  }
+
+  .nav__left__title {
+    color: $color-white;
+  }
+
+  .nav__bar__line {
+    background: $color-white;
+  }
+
+  .nav__bar__left svg path {
+    fill: $color-white;
+  }
+}
+
 .nav__back {
   position: absolute;
   left: 0;
@@ -26,6 +93,7 @@
   width: 100%;
   height: 100%;
   background: $color-primary;
+  transition: background-color $animation-nav;
 }
 
 @import './nav__bar';
