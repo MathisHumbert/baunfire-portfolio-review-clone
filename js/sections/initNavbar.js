@@ -9,41 +9,41 @@ export default function initNavbar(scroll) {
   let scrolled = false;
   let lastHeight = 0;
 
-  scroll.on('scroll', (instance) => {
-    let navbarHeight = document
-      .querySelector('.nav__bar')
-      .getBoundingClientRect().height;
+  // scroll.on('scroll', (instance) => {
+  //   let navbarHeight = document
+  //     .querySelector('.nav__bar')
+  //     .getBoundingClientRect().height;
 
-    scrolled && (lastHeight = instance.scroll.y);
+  //   scrolled && (lastHeight = instance.scroll.y);
 
-    if (
-      instance.direction === 'down' &&
-      instance.scroll.y > navbarHeight &&
-      !scrolled
-    ) {
-      main.classList.add('scrolled');
-      scrolled = true;
-    }
+  //   if (
+  //     instance.direction === 'down' &&
+  //     instance.scroll.y > navbarHeight &&
+  //     !scrolled
+  //   ) {
+  //     main.classList.add('scrolled');
+  //     scrolled = true;
+  //   }
 
-    if (instance.direction === 'up') {
-      scrolled = false;
-    }
+  //   if (instance.direction === 'up') {
+  //     scrolled = false;
+  //   }
 
-    if (
-      instance.direction === 'up' &&
-      lastHeight - instance.scroll.y > navbarHeight &&
-      !scrolled
-    ) {
-      main.classList.remove('scrolled');
-    }
-  });
+  //   if (
+  //     instance.direction === 'up' &&
+  //     lastHeight - instance.scroll.y > navbarHeight &&
+  //     !scrolled
+  //   ) {
+  //     main.classList.remove('scrolled');
+  //   }
+  // });
 
   const sections = document.querySelectorAll('[data-scroll-section]');
   const nav = document.querySelector('.nav');
 
   sections.forEach((section) => {
     const theme = section.getAttribute('data-theme');
-    const tl = gsap.timeline({ paused: true });
+    const tl = gsap.timeline({ duration: 0, ease: 'none', paused: true });
 
     let bgColor, hamburgerColor, allColor;
 
@@ -65,32 +65,44 @@ export default function initNavbar(scroll) {
       allColor = '#ffffff';
     }
 
-    tl.to('.nav__back__color', {
-      background: bgColor,
-    })
-      .to('.nav__left__title', { color: allColor }, '<')
-      .to('.nav__bar__line', { background: allColor }, '<')
-      .to(
-        '.nav__bar__left svg path',
-        {
-          fill: allColor,
-        },
-        '<'
-      )
-      .to('.nav__hamburger__bar', { background: hamburgerColor }, '<');
-
     ScrollTrigger.create({
       trigger: section,
       scroller: '[data-scroll-container]',
       start: 'top top',
       end: 'bottom 50%',
       onEnter: () => {
-        tl.play();
-        nav.className = `nav theme__${theme}`;
+        gsap
+          .timeline()
+          .to('.nav__back__color', {
+            background: bgColor,
+          })
+          .to('.nav__left__title', { color: allColor }, '<')
+          .to('.nav__bar__line', { background: allColor }, '<')
+          .to(
+            '.nav__bar__left svg path',
+            {
+              fill: allColor,
+            },
+            '<'
+          )
+          .to('.nav__hamburger__bar', { background: hamburgerColor }, '<');
       },
       onEnterBack: () => {
-        tl.restart();
-        nav.className = `nav theme__${theme}`;
+        gsap
+          .timeline()
+          .to('.nav__back__color', {
+            background: bgColor,
+          })
+          .to('.nav__left__title', { color: allColor }, '<')
+          .to('.nav__bar__line', { background: allColor }, '<')
+          .to(
+            '.nav__bar__left svg path',
+            {
+              fill: allColor,
+            },
+            '<'
+          )
+          .to('.nav__hamburger__bar', { background: hamburgerColor }, '<');
       },
     });
   });
