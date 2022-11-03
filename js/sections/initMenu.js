@@ -97,7 +97,7 @@ export default function initMenu(scroll) {
         .to(
           '.nav__back',
           {
-            translateY: '98vh',
+            translateY: '92vh',
             duration: 1.2,
             ease: 'nav-translate',
           },

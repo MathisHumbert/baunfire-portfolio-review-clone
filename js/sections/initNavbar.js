@@ -43,13 +43,55 @@ export default function initNavbar(scroll) {
 
   sections.forEach((section) => {
     const theme = section.getAttribute('data-theme');
+    const tl = gsap.timeline({ paused: true });
+
+    let bgColor, hamburgerColor, allColor;
+
+    if (theme === 'light') {
+      bgColor = '#f6f5ef';
+      hamburgerColor = '#f84525';
+      allColor = '#1b1b1b';
+    }
+
+    if (theme === 'primary') {
+      bgColor = '#f84525';
+      hamburgerColor = '#eafe07';
+      allColor = '#ffffff';
+    }
+
+    if (theme === 'dark' || theme === 'secondary') {
+      bgColor = '#1b1b1b';
+      hamburgerColor = '#eafe07';
+      allColor = '#ffffff';
+    }
+
+    tl.to('.nav__back__color', {
+      background: bgColor,
+    })
+      .to('.nav__left__title', { color: allColor }, '<')
+      .to('.nav__bar__line', { background: allColor }, '<')
+      .to(
+        '.nav__bar__left svg path',
+        {
+          fill: allColor,
+        },
+        '<'
+      )
+      .to('.nav__hamburger__bar', { background: hamburgerColor }, '<');
+
     ScrollTrigger.create({
       trigger: section,
       scroller: '[data-scroll-container]',
       start: 'top top',
       end: 'bottom 50%',
-      onEnter: () => (nav.className = `nav theme__${theme}`),
-      onEnterBack: () => (nav.className = `nav theme__${theme}`),
+      onEnter: () => {
+        tl.play();
+        nav.className = `nav theme__${theme}`;
+      },
+      onEnterBack: () => {
+        tl.restart();
+        nav.className = `nav theme__${theme}`;
+      },
     });
   });
 }

@@ -33,7 +33,6 @@ main.scrolled .nav__bar {
 
   path {
     fill: $color-white;
-    transition: all $animation-nav;
   }
 }
 
@@ -41,7 +40,6 @@ main.scrolled .nav__bar {
   @extend %title-small;
 
   color: $color-white;
-  transition: color $animation-nav;
 }
 
 .nav__right__hamburger {
@@ -85,7 +83,7 @@ main.scrolled .nav__bar {
   height: 2px;
   background-color: $color-secondary;
   transform: translate(0, 0) scale(1, 1) rotate(0.001deg);
-  transition: background-color $animation-nav, transform $animation-primary;
+  transition: transform $animation-primary;
 
   &:nth-child(1) {
     transform: translate(0, -0.45em) rotate(0.001deg) scale(1, 1);
