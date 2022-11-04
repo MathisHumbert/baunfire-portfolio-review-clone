@@ -43,9 +43,9 @@ export default function initCursor() {
 
       cursor.className = 'custom__cursor cursor__scroll';
 
-      scrollCursor.style.transform = `rotate(${
-        -(lastScrollCursorX - clientX) * 3
-      }deg)`;
+      scrollCursor.style.transform = `rotate(${-(
+        lastScrollCursorX - clientX
+      )}deg)`;
     } else if (target === 'menu__item__container') {
       let number = e.target.getAttribute('data-number');
       let numberHtml = cursor.querySelector('.custom__cursor__nav h4');
@@ -58,17 +58,15 @@ export default function initCursor() {
 
       cursor.className = 'custom__cursor cursor__nav';
 
-      numberHtml.style.transform = `rotate(${
-        -(lastNavCursorX - clientX) * 3
-      }deg)`;
+      numberHtml.style.transform = `rotate(${-(lastNavCursorX - clientX)}deg)`;
     } else if (target === 'info__agenda__row') {
       lastTableCursorX = lerp(lastTableCursorX, clientX, 0.2);
 
       cursor.className = 'custom__cursor cursor__table';
 
-      tableCursor.style.transform = `rotate(${
-        -(lastTableCursorX - clientX) * 2
-      }deg)`;
+      tableCursor.style.transform = `rotate(${-(
+        lastTableCursorX - clientX
+      )}deg)`;
     } else {
       cursor.className = 'custom__cursor';
     }
