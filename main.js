@@ -102,6 +102,8 @@ const init = () => {
 
   imgLoaded.on('progress', () => {
     loadedImageCount++;
+
+    console.log(loadedImageCount);
   });
 
   imgLoaded.on('done', () => {
