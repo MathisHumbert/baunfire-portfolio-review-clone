@@ -10,7 +10,6 @@ body {
   width: 100vw;
   -webkit-font-smoothing: antialiased;
   position: relative;
-  background-color: var(--color-light);
   font-size: 16px;
   font-size: clamp(16px, 1.2vw, 19px);
   overflow: hidden;
@@ -22,7 +21,6 @@ main {
   width: 100vw;
   position: fixed;
   height: 100%;
-  background: var(--color-light);
   display: block;
 }
 

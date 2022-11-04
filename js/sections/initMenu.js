@@ -6,9 +6,44 @@ gsap.registerPlugin(CustomEase);
 CustomEase.create('animation-smooth', '0.7, 0, 0.3, 1');
 CustomEase.create('nav-translate', '.9, 0, .1, 1');
 
+const getColor = (type, theme) => {
+  if (theme === 'theme__light') {
+    if (type === 'bgColor') {
+      return '#f6f5ef';
+    }
+    if (type === 'hamburgerColor') {
+      return '#f84525';
+    }
+    if (type === 'allColor') {
+      return '#1b1b1b';
+    }
+  } else if (theme === 'theme__dark' || theme === 'theme__secondary') {
+    if (type === 'bgColor') {
+      return '#1b1b1b';
+    }
+    if (type === 'hamburgerColor') {
+      return '#eafe07';
+    }
+    if (type === 'allColor') {
+      return '#ffffff';
+    }
+  } else {
+    if (type === 'bgColor') {
+      return '#f84525';
+    }
+    if (type === 'hamburgerColor') {
+      return '#eafe07';
+    }
+    if (type === 'allColor') {
+      return '#ffffff';
+    }
+  }
+};
+
 export default function initMenu(scroll) {
   const nav = document.querySelector('.nav');
   const navButton = document.querySelector('.nav__right__hamburger');
+  const cursor = document.querySelector('.custom__cursor');
 
   const menuLinks = document.querySelectorAll('.menu__item__container');
 
@@ -29,6 +64,7 @@ export default function initMenu(scroll) {
       );
 
       const animateMenuOut = gsap.timeline({ ease: 'none', duration: 0 });
+      // cursor.style.background = '#eafe07';
 
       animateMenuOut
         .to(
@@ -45,7 +81,7 @@ export default function initMenu(scroll) {
         .to(
           '.nav__bottom__left, .nav__bottom__right',
           {
-            translateY: '-50%',
+            y: '-50%',
             opacity: 0,
             ease: 'animation-smooth',
             duration: 0.7,
@@ -62,18 +98,35 @@ export default function initMenu(scroll) {
           0
         )
         .to('.nav__back__color', {
-          background: '#f84525',
+          background: () => getColor('bgColor', document.body.classList.value),
         })
-        .to('.nav__left__title', { color: '#FFFFFF' }, '<')
-        .to('.nav__bar__line', { background: '#FFFFFF' }, '<')
+        .to(
+          '.nav__left__title',
+          { color: getColor('allColor', document.body.classList.value) },
+          '<'
+        )
+        .to(
+          '.nav__bar__line',
+          { background: getColor('allColor', document.body.classList.value) },
+          '<'
+        )
         .to(
           '.nav__bar__left svg path',
           {
-            fill: '#fff',
+            fill: getColor('allColor', document.body.classList.value),
           },
           '<'
         )
-        .to('.nav__hamburger__bar', { background: '#eafe07' }, '<');
+        .to(
+          '.nav__hamburger__bar',
+          {
+            background: getColor(
+              'hamburgerColor',
+              document.body.classList.value
+            ),
+          },
+          '<'
+        );
     } else {
       nav.classList.add('open');
 
@@ -82,6 +135,7 @@ export default function initMenu(scroll) {
       );
 
       const animateMenuIn = gsap.timeline({ ease: 'none', duration: 0 });
+      // cursor.style.background = '#f84525';
 
       animateMenuIn
         .to('.nav__left__title', { color: '#1B1B1B' }, 0)
@@ -97,7 +151,7 @@ export default function initMenu(scroll) {
         .to(
           '.nav__back',
           {
-            translateY: '92vh',
+            translateY: '94vh',
             duration: 1.2,
             ease: 'nav-translate',
           },
@@ -118,7 +172,7 @@ export default function initMenu(scroll) {
         .to(
           '.nav__bottom__left, .nav__bottom__right',
           {
-            translateY: 0,
+            y: 0,
             opacity: 1,
             ease: 'animation-smooth',
             duration: 0.7,

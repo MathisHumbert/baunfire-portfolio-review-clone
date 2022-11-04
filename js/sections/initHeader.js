@@ -11,33 +11,29 @@ export default function initHeader(scroll) {
   header.addEventListener('click', () => scroll.scrollTo('#target-purpose'));
   const tl = gsap.timeline();
 
-  tl.from('.header__container__title h1', {
-    translateY: '125%',
-    rotate: '5deg',
+  tl.to('.header__container__title h1', {
+    translateY: 0,
+    rotate: 0,
     stagger: 0.2,
     ease: 'animation-smooth',
     duration: 1.25,
   })
-    .from(
-      '.nav__bar__line',
-      { scale: '(0, 1)', duration: 1, ease: 'linear' },
-      '<'
-    )
-    .from(
+    .to('.nav__bar__line', { scale: 1, duration: 1, ease: 'linear' }, '<')
+    .to(
       '.nav__bar__left, .nav__bar__right',
       {
-        translateY: '50%',
-        opacity: 0,
+        translateY: 0,
+        opacity: 1,
         ease: 'animation-smooth',
         duration: 0.7,
       },
       '-=1'
     )
-    .from(
+    .to(
       '.header__bottom__left, .header__bottom__right',
       {
-        translateY: '50%',
-        opacity: 0,
+        translateY: 0,
+        opacity: 1,
         ease: 'animation-smooth',
         duration: 0.7,
       },

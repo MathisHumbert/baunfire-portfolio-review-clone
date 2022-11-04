@@ -158,6 +158,7 @@
   gap: 0.45em;
   align-items: center;
   margin-bottom: 1.5em;
+  cursor: pointer;
 }
 
 .footer__bottom__left__logo__img {
@@ -175,6 +176,11 @@
 
 .footer__bottom__left__text {
   @extend %title-text;
+
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }
 
 .footer__bottom__right {
@@ -224,6 +230,7 @@
 .footer__bottom__right__contact__link,
 .footer__bottom__right__social__link {
   margin-top: 0.25em;
+  text-decoration: none;
 
   span {
     color: $color-white;

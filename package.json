@@ -15,6 +15,7 @@
   },
   "dependencies": {
     "gsap": "^3.11.3",
+    "imagesloaded": "^5.0.0",
     "locomotive-scroll": "^4.1.4"
   }
 }

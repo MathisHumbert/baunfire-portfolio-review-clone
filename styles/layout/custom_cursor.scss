@@ -1,7 +1,6 @@
 .custom__cursor {
   width: 0.8em;
   mix-blend-mode: normal;
-  background: $color-secondary;
   position: fixed;
   z-index: 900;
   display: block;
@@ -13,10 +12,155 @@
   top: 0px;
   left: 0px;
   will-change: transform, width;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.theme__primary .custom__cursor {
+  background-color: $color-secondary;
+}
+
+.custom__cursor .overlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
 }
 
 .custom__cursor__before {
   display: block;
   position: relative;
   padding-top: 100%;
+  pointer-events: none;
+}
+
+.custom__cursor.cursor__scroll {
+  width: 5em;
+
+  .custom__cursor__scroll span {
+    transform: translate(-50%, -50%) scale(1) rotate(0.001deg);
+  }
+}
+
+.custom__cursor__scroll {
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(0.001deg);
+    transition: transform 0.4s cubic-bezier(0.7, 0, 0.3, 1) 0s;
+  }
+
+  svg {
+    width: 100%;
+    height: auto;
+  }
+}
+
+.custom__cursor.cursor__nav {
+  width: calc(clamp(9em, 12vw, 11em) * 0.6);
+
+  .custom__cursor__nav span {
+    transform: translate(-50%, -50%) scale(1) rotate(0.001deg);
+  }
+}
+
+.custom__cursor__nav {
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%) scale(0) rotate(0.001deg);
+  }
+
+  h4 {
+    @extend %title-h4;
+
+    color: $color-light;
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+}
+
+.custom__cursor.cursor__table {
+  width: calc(clamp(9em, 12vw, 11em) * 1.1);
+
+  .custom__cursor__table {
+    span {
+      transform: translate(-50%, -50%) scale(1) rotate(0.001deg);
+    }
+
+    svg {
+      transform: translateY(0%) rotate(-315deg);
+    }
+  }
+
+  .custom__cursor__table__double {
+    div {
+      &:first-child {
+        transform: translateY(-100%) rotate(0.001deg);
+      }
+
+      &:last-child {
+        transform: translateY(0%) rotate(0.001deg);
+      }
+    }
+  }
+}
+
+.custom__cursor__table {
+  span {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transition: transform 0.3s cubic-bezier(0.7, 0, 0.3, 1);
+    transform: translate(-50%, -50%) scale(0) rotate(0.001deg);
+  }
+
+  h4 {
+    @extend %title-h4;
+
+    display: flex;
+    gap: 0.25em;
+    white-space: nowrap;
+    text-align: left;
+    color: $color-dark;
+    font-weight: 500;
+    font-size: 1.5em;
+  }
+
+  svg {
+    width: 0.65em;
+    transform: translateY(0%) rotate(0.001deg);
+    transition: $animation-primary;
+    display: inline-flex;
+    height: auto;
+
+    path {
+      fill: $color-dark;
+    }
+  }
+}
+
+.custom__cursor__table__double {
+  display: inline-flex;
+  overflow: hidden;
+  position: relative;
+  align-items: center;
+
+  div {
+    transition: $animation-primary 0.1s;
+
+    &:first-child {
+      transform: translateY(0%) rotate(0.001deg);
+    }
+
+    &:last-child {
+      position: absolute;
+      top: 0;
+      left: 0;
+      transform: translateY(100%) rotate(0.001deg);
+    }
+  }
 }

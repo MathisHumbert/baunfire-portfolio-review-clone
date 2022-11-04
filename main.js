@@ -1,6 +1,7 @@
 import { gsap } from 'gsap';
 import { CustomEase } from 'gsap/all';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import imagesLoaded from 'imagesloaded';
 
 import LocomotiveScroll from 'locomotive-scroll';
 
@@ -72,7 +73,7 @@ ScrollTrigger.addEventListener('refresh', () => locoScroll.update());
 
 ScrollTrigger.refresh();
 
-const init = () => {
+const initSection = () => {
   initMenu(locoScroll);
   initButtons(locoScroll);
   initHeader(locoScroll);
@@ -88,7 +89,30 @@ const init = () => {
   initSecondTitleImage();
   initInfoAgenda();
   initSubmit();
-  initFooter();
+  initFooter(locoScroll);
 };
 
-window.addEventListener('load', () => init());
+const init = () => {
+  let loadedImageCount = 0;
+  let imageCount = 0;
+  const container = document.body;
+
+  const imgLoaded = imagesLoaded(container);
+  imageCount = imgLoaded.images.length;
+
+  imgLoaded.on('progress', () => {
+    loadedImageCount++;
+  });
+
+  imgLoaded.on('done', () => {
+    gsap.to('.loading__screen', {
+      x: 0,
+      y: '-130%',
+      rotate: 0,
+      duration: 1,
+      onComplete: () => initSection(),
+    });
+  });
+};
+
+init();

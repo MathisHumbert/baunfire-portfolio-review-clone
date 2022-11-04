@@ -2,6 +2,10 @@
   pointer-events: all;
 }
 
+.nav.open .menu__item__container {
+  pointer-events: all;
+}
+
 .nav__menu {
   padding-top: 5vh;
   position: relative;
@@ -24,6 +28,7 @@
   padding: 0 0 0.15em 0;
   margin: 0 0 -0.15em 0;
   position: relative;
+  pointer-events: none;
 }
 
 .menu__item__text {
@@ -37,6 +42,7 @@
   margin: -0.02em 0 -0.02em 0;
   color: $color-dark;
   transform: translateY(100%) rotate(5deg);
+  pointer-events: none;
 
   @include media('>1024px') {
     font-size: 13vh;

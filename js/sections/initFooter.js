@@ -1,8 +1,9 @@
 import { animateLineIn, animateTitleIn } from '../utils/gsapAnimations.js';
 import magneticButton from '../utils/magneticButton.js';
 
-export default function initFooter() {
+export default function initFooter(scroll) {
   const button = document.querySelector('.footer .rounded__button');
+  const footerLogo = document.querySelector('.footer__bottom__left__logo');
 
   animateTitleIn(
     '.footer__top__part h2 span',
@@ -18,4 +19,6 @@ export default function initFooter() {
   );
 
   magneticButton(button);
+
+  footerLogo.addEventListener('click', () => scroll.scrollTo('#target-header'));
 }

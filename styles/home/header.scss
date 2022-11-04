@@ -7,10 +7,20 @@
   position: relative;
   pointer-events: all;
   cursor: pointer;
+  z-index: 4;
 
   @include media('>1024px') {
     padding-bottom: calc($section-padding * 0.75);
   }
+}
+
+.header__scroll__trigger {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  z-index: 1;
 }
 
 .header__container {
@@ -37,6 +47,7 @@
   display: inline-flex;
   flex-wrap: wrap;
   gap: 0 0.25em;
+  transform: translateY(125%) rotate(5deg);
 }
 
 .header__container__title:last-child {
@@ -61,6 +72,12 @@
 
 .header__bottom {
   @extend %info__bottom;
+}
+
+.header__bottom__right,
+.header__bottom__left {
+  transform: translateY(50%);
+  opacity: 0;
 }
 
 .header__bottom__right {

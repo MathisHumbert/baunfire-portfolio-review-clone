@@ -145,6 +145,7 @@
   gap: $gap-padding-em;
   padding: 1.5em 0;
   position: relative;
+  pointer-events: all;
 }
 
 .info__agenda__row:last-child .info__agenda__line {
@@ -159,11 +160,13 @@
   background: $color-border;
   transform: scale(0, 1);
   transform-origin: left top;
+  pointer-events: none;
 }
 
 .info__agenda__left,
 .info__agenda__right {
   width: 50%;
+  pointer-events: none;
 }
 
 .info__agenda__left h4,
