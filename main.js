@@ -6,6 +6,7 @@ import imagesLoaded from 'imagesloaded';
 import LocomotiveScroll from 'locomotive-scroll';
 
 import './styles/index.scss';
+import './styles/base/font.scss';
 
 import initPurpose from './js/sections/initPurpose.js';
 import initMenu from './js/sections/initMenu.js';
