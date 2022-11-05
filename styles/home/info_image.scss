@@ -35,12 +35,15 @@
     @extend %title-mondwest;
 
     font-size: 1.6em;
-    padding: 0 0.025em 0.075em 0.025em;
-    margin: -0.1em -0.065em 0.075em -0.065em;
     overflow: hidden;
 
     @include media('>1024px') {
       font-size: 1.495em;
+    }
+
+    div {
+      padding: 0 0.025em 0.075em 0.025em;
+      margin: -0.1em -0.065em 0.075em -0.065em;
     }
 
     span {

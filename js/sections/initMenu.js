@@ -43,8 +43,6 @@ const getColor = (type, theme) => {
 export default function initMenu(scroll) {
   const nav = document.querySelector('.nav');
   const navButton = document.querySelector('.nav__right__hamburger');
-  const cursor = document.querySelector('.custom__cursor');
-
   const menuLinks = document.querySelectorAll('.menu__item__container');
 
   menuLinks.forEach((link) => {
@@ -135,7 +133,6 @@ export default function initMenu(scroll) {
       );
 
       const animateMenuIn = gsap.timeline({ ease: 'none', duration: 0 });
-      // cursor.style.background = '#f84525';
 
       animateMenuIn
         .to('.nav__left__title', { color: '#1B1B1B' }, 0)

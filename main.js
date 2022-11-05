@@ -94,27 +94,40 @@ const initSection = () => {
 };
 
 const init = () => {
-  let loadedImageCount = 0;
-  let imageCount = 0;
   const container = document.body;
-
   const imgLoaded = imagesLoaded(container);
-  imageCount = imgLoaded.images.length;
-
-  imgLoaded.on('progress', () => {
-    loadedImageCount++;
-
-    console.log(loadedImageCount);
-  });
 
   imgLoaded.on('done', () => {
-    gsap.to('.loading__screen', {
-      x: 0,
-      y: '-130%',
-      rotate: 0,
-      duration: 1,
-      onComplete: () => initSection(),
-    });
+    const tl = gsap.timeline();
+    tl.to('.loading__logo__inner', {
+      y: 0,
+      rotate: '-5deg',
+      ease: 'animation-smooth',
+    })
+      .to('.loading__logo__inner svg path', {
+        opacity: 0,
+        stagger: 0.01,
+        duration: 0.3,
+        ease: 'animation-smooth',
+      })
+      .to('.loading__logo__inner svg path', {
+        opacity: 1,
+        stagger: 0.01,
+        duration: 0.3,
+        ease: 'animation-smooth',
+      });
+    tl.to('.loading__logo__inner', { y: '-160%', rotate: '0deg' }).to(
+      '.loading__screen',
+      {
+        x: 0,
+        y: '-130%',
+        rotate: 0,
+        duration: 1.25,
+        ease: 'nav-translate',
+        onComplete: () => initSection(),
+      },
+      '<'
+    );
   });
 };
 

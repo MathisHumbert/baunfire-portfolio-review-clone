@@ -16,9 +16,9 @@ export default function initTitleLocation() {
     effect: (targets) => {
       const tl = gsap.timeline({ ease: 'animation-smooth' });
 
-      tl.to(targets[0], { translateX: '-100%', duration: 1 }) // lefft
-        .to(targets[1], { translateX: 0, duration: 1 }, 0) // midldle
-        .to(targets[2], { translateX: '100%', duration: 1 }, 0) // right
+      tl.to(targets[0], { translateX: '-100%', duration: 1 })
+        .to(targets[1], { translateX: 0, duration: 1 }, 0)
+        .to(targets[2], { translateX: '100%', duration: 1 }, 0)
         .to(targets[2], { opacity: 1, duration: 0 })
         .to(
           targets[0],
@@ -207,49 +207,19 @@ export default function initTitleLocation() {
   const main = gsap.timeline({ paused: true });
 
   main
-    .addLabel('first')
     .add(animateInfinitSwiperFirst, 0)
     .add(animateInfinitBarTextFirst, 0)
-    .addLabel('second')
     .add(animateInfinitSwiperSecond, 0)
     .add(animateInfinitBarTextSecond, 0)
-    .addLabel('third')
     .add(animateInfinitSwiperThird, 0)
     .add(animateInfinitBarTextThird, 0)
-    .addLabel('fourth')
     .add(animateInfinitSwiperFourth, 0)
     .add(animateInfinitBarTextFourth, 0);
-
-  const handlePreviousClick = (current) => {
-    if (current === 'first') return 'fourth';
-    if (current === 'second') return 'first';
-    if (current === 'third') return 'second';
-    if (current === 'fourth') return 'third';
-  };
-
-  const handleNextClick = (current) => {
-    if (current === 'first') return 'second';
-    if (current === 'second') return 'third';
-    if (current === 'third') return 'fourth';
-    if (current === 'fourth') return 'first';
-  };
 
   leftArrow.addEventListener('mouseenter', () => main.pause());
   rightArrow.addEventListener('mouseenter', () => main.pause());
   leftArrow.addEventListener('mouseleave', () => main.play());
   rightArrow.addEventListener('mouseleave', () => main.play());
-  leftArrow.addEventListener('click', () =>
-    main.tweenTo(handlePreviousClick(main.currentLabel()), {
-      duration: 1.5,
-      onComplete: () => main.play(),
-    })
-  );
-  rightArrow.addEventListener('click', () =>
-    main.tweenTo(handleNextClick(main.currentLabel()), {
-      duration: 1.5,
-      onComplete: () => main.play(),
-    })
-  );
 
   ScrollTrigger.create({
     trigger: imagesWrapper,
