@@ -9,7 +9,7 @@ export default function initHeader(scroll) {
   const header = document.querySelector('.header');
 
   header.addEventListener('click', () => scroll.scrollTo('#target-purpose'));
-  const tl = gsap.timeline();
+  const tl = gsap.timeline({ delay: 0.5 });
 
   tl.to('.header__container__title h1', {
     translateY: 0,

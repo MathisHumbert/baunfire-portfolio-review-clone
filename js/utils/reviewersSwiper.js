@@ -10,7 +10,7 @@ export default function reviewersSwiper(container) {
     name: 'animateSwiperImage',
     extendTimeline: true,
     effect: (targets) => {
-      const tl = gsap.timeline({ ease: 'animation-smooth' });
+      const tl = gsap.timeline({ defaults: { ease: 'animation-smooth' } });
 
       tl.to(targets[0], { translateX: '-100%', duration: 1 })
         .to(targets[1], { translateX: 0, duration: 1 }, 0)
@@ -48,7 +48,7 @@ export default function reviewersSwiper(container) {
     name: 'animateSwiperText',
     extendTimeline: true,
     effect: (targets) => {
-      const tl = gsap.timeline({ ease: 'animation-smooth' });
+      const tl = gsap.timeline({ defaults: { ease: 'animation-smooth' } });
 
       const first = targets[0].querySelectorAll('span');
       const second = targets[1].querySelectorAll('span');

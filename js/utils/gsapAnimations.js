@@ -81,10 +81,12 @@ export function animateLineIn(target, trigger, start) {
 
 export function animateImageIn(revealTarget, imageTarget, trigger, start) {
   const tl = gsap.timeline({
-    ease: 'nav-translate',
+    defaults: {
+      ease: 'nav-translate',
+    },
   });
 
-  tl.to(revealTarget, { translateY: '-100%', duration: 0.7 }).to(
+  tl.to(revealTarget, { translateY: '-100%', duration: 1 }).to(
     imageTarget,
     { scale: 1, duration: 1 },
     0

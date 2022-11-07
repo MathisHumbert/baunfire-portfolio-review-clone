@@ -14,7 +14,7 @@ export default function initTitleLocation() {
     name: 'animateSwiperImage',
     extendTimeline: true,
     effect: (targets) => {
-      const tl = gsap.timeline({ ease: 'animation-smooth' });
+      const tl = gsap.timeline({ defaults: { ease: 'animation-smooth' } });
 
       tl.to(targets[0], { translateX: '-100%', duration: 1 })
         .to(targets[1], { translateX: 0, duration: 1 }, 0)
@@ -126,8 +126,6 @@ export default function initTitleLocation() {
 
   const animateInfinitSwiperFirst = gsap
     .timeline({
-      repeat: -1,
-      repeatDelay: 14,
       delay: 3,
     })
     .animateSwiperImage([leftImages[0], leftImages[1], leftImages[2]])
@@ -136,8 +134,6 @@ export default function initTitleLocation() {
     .animateSwiperText([texts[0], texts[1], texts[2]], '-=1');
   const animateInfinitSwiperSecond = gsap
     .timeline({
-      repeat: -1,
-      repeatDelay: 14,
       delay: 7,
     })
     .animateSwiperImage([[leftImages[1], leftImages[2], leftImages[3]]])
@@ -149,8 +145,6 @@ export default function initTitleLocation() {
     .animateSwiperText([texts[1], texts[2], texts[3]], '-=1');
   const animateInfinitSwiperThird = gsap
     .timeline({
-      repeat: -1,
-      repeatDelay: 14,
       delay: 11,
     })
     .animateSwiperImage([[leftImages[2], leftImages[3], leftImages[0]]])
@@ -163,8 +157,6 @@ export default function initTitleLocation() {
 
   const animateInfinitSwiperFourth = gsap
     .timeline({
-      repeat: -1,
-      repeatDelay: 14,
       delay: 15,
     })
     .animateSwiperImage([[leftImages[3], leftImages[0], leftImages[1]]])
@@ -177,49 +169,78 @@ export default function initTitleLocation() {
 
   const animateInfinitBarTextFirst = gsap
     .timeline({
-      repeat: -1,
-      repeatDelay: 11,
       delay: 0,
     })
     .animateSwiperBar(bars[0]);
   const animateInfinitBarTextSecond = gsap
     .timeline({
-      repeat: -1,
-      repeatDelay: 11,
       delay: 4,
     })
     .animateSwiperBar(bars[1]);
   const animateInfinitBarTextThird = gsap
     .timeline({
-      repeat: -1,
-      repeatDelay: 11,
       delay: 8,
     })
     .animateSwiperBar(bars[2]);
   const animateInfinitBarTextFourth = gsap
     .timeline({
-      repeat: -1,
-      repeatDelay: 11,
       delay: 12,
     })
     .animateSwiperBar(bars[3]);
 
-  const main = gsap.timeline({ paused: true });
+  const main = gsap.timeline({
+    paused: true,
+    repeat: -1,
+    onComplete: () => console.log('restart'),
+  });
 
   main
+    .addLabel('first')
     .add(animateInfinitSwiperFirst, 0)
     .add(animateInfinitBarTextFirst, 0)
+    .addLabel('second')
     .add(animateInfinitSwiperSecond, 0)
     .add(animateInfinitBarTextSecond, 0)
+    .addLabel('third')
     .add(animateInfinitSwiperThird, 0)
     .add(animateInfinitBarTextThird, 0)
+    .addLabel('fourth')
     .add(animateInfinitSwiperFourth, 0)
-    .add(animateInfinitBarTextFourth, 0);
+    .add(animateInfinitBarTextFourth, 0)
+    .addLabel('end');
+
+  const handleRightArrowClick = (currentLabel) => {
+    if (currentLabel === 'first') return 'second';
+    if (currentLabel === 'second') return 'third';
+    if (currentLabel === 'third') return 'fourth';
+    if (currentLabel === 'fourth') return 'end';
+  };
+
+  const handleLeftArrowClick = (currentLabel) => {
+    if (currentLabel === 'first') return 'fourth';
+    if (currentLabel === 'second') return 'first';
+    if (currentLabel === 'third') return 'second';
+    if (currentLabel === 'fourth') return 'third';
+  };
 
   leftArrow.addEventListener('mouseenter', () => main.pause());
   rightArrow.addEventListener('mouseenter', () => main.pause());
   leftArrow.addEventListener('mouseleave', () => main.play());
   rightArrow.addEventListener('mouseleave', () => main.play());
+  leftArrow.addEventListener('click', () =>
+    main.tweenTo(handleLeftArrowClick(main.currentLabel()), {
+      duration: 0.7,
+      ease: 'none',
+      onComplete: () => main.play(),
+    })
+  );
+  rightArrow.addEventListener('click', () =>
+    main.tweenTo(handleRightArrowClick(main.currentLabel()), {
+      duration: 0.7,
+      ease: 'none',
+      onComplete: () => main.play(),
+    })
+  );
 
   ScrollTrigger.create({
     trigger: imagesWrapper,

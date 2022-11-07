@@ -124,7 +124,8 @@ const init = () => {
         rotate: 0,
         duration: 1.25,
         ease: 'nav-translate',
-        onComplete: () => initSection(),
+        onStart: () => initSection(),
+        // onComplete: () => initSection(),
       },
       '<'
     );

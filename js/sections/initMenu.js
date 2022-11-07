@@ -61,7 +61,9 @@ export default function initMenu(scroll) {
         '.menu__item__text, .nav__bottom__left, .nav__bottom__right, nav__back, .nav__back__color, .nav__left__title, .nav__bar__line, .nav__left__img, .nav__hamburger__bar'
       );
 
-      const animateMenuOut = gsap.timeline({ ease: 'none', duration: 0 });
+      const animateMenuOut = gsap.timeline({
+        defaults: { ease: 'none', duration: 0 },
+      });
       // cursor.style.background = '#eafe07';
 
       animateMenuOut
@@ -132,7 +134,9 @@ export default function initMenu(scroll) {
         '.menu__item__text, .nav__bottom__left, .nav__bottom__right, nav__back, .nav__back__color, .nav__left__title, .nav__bar__line, .nav__left__img, .nav__hamburger__bar'
       );
 
-      const animateMenuIn = gsap.timeline({ ease: 'none', duration: 0 });
+      const animateMenuIn = gsap.timeline({
+        defaults: { ease: 'none', duration: 0 },
+      });
 
       animateMenuIn
         .to('.nav__left__title', { color: '#1B1B1B' }, 0)
