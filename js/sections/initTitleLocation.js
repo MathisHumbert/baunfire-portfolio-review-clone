@@ -191,7 +191,6 @@ export default function initTitleLocation() {
   const main = gsap.timeline({
     paused: true,
     repeat: -1,
-    onComplete: () => console.log('restart'),
   });
 
   main

@@ -125,7 +125,6 @@ const init = () => {
         duration: 1.25,
         ease: 'nav-translate',
         onStart: () => initSection(),
-        // onComplete: () => initSection(),
       },
       '<'
     );

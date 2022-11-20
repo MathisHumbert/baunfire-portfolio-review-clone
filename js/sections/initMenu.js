@@ -64,7 +64,6 @@ export default function initMenu(scroll) {
       const animateMenuOut = gsap.timeline({
         defaults: { ease: 'none', duration: 0 },
       });
-      // cursor.style.background = '#eafe07';
 
       animateMenuOut
         .to(
